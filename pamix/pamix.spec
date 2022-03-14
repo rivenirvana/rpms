@@ -1,17 +1,19 @@
-Name:           pamix
-Version:        1.6
-Release:        2%{?dist}
-Summary:        PulseAudio terminal mixer
-License:        MIT
-URL:            https://github.com/patroclos/PAmix
-Source0:        %{url}/archive/master.tar.gz
-BuildRequires:  cmake
-BuildRequires:  pkg-config
-BuildRequires:  gcc-c++
-BuildRequires:  ncurses-devel
-BuildRequires:  pulseaudio-libs-devel
+%global packager rivenirvana
+
+Name:            pamix
+Version:         1.6
+Release:         3%{?dist}.%{packager}
+Summary:         PulseAudio terminal mixer
+License:         MIT
+URL:             https://github.com/patroclos/PAmix
+Source0:         %{url}/archive/master.tar.gz
+BuildRequires:   cmake
+BuildRequires:   pkg-config
+BuildRequires:   gcc-c++
+BuildRequires:   ncurses-devel
+BuildRequires:   pulseaudio-libs-devel
 # Libs are required automatically, server can be remote
-Recommends:     pulseaudio
+Recommends:      pulseaudio
 
 %description
 PAmix is a simple, terminal-based mixer for PulseAudio inspired by pavucontrol.
@@ -34,6 +36,9 @@ PAmix is a simple, terminal-based mixer for PulseAudio inspired by pavucontrol.
 %config(noreplace) %{_sysconfdir}/xdg/%{name}.conf
 
 %changelog
+* Tue Mar 15 2022 Arvin Verain <acverain@up.edu.ph> - 1.6-3
+- Rebuild latest upstream
+
 * Fri Dec 25 2020 Arvin Verain <acverain@up.edu.ph> - 1.6-2
 - 90bd2ea - Use pkg-config to reliably find ncurses lib.
 - 72d8189 - FIX: default XDG_CONFIG_DIRS directory
