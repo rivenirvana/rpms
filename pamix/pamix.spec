@@ -22,7 +22,7 @@ Recommends:      pulseaudio
 PAmix is a simple, terminal-based mixer for PulseAudio inspired by pavucontrol.
 
 %prep
-%autosetup -n PAmix-%{short}
+%autosetup -n PAmix-%{commit}
 
 %build
 %cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_UNICODE=1
