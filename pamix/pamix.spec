@@ -39,8 +39,8 @@ PAmix is a simple, terminal-based mixer for PulseAudio inspired by pavucontrol.
 %config(noreplace) %{_sysconfdir}/xdg/%{name}.conf
 
 %changelog
-* Fri Apr 01 2022 Arvin Verain <acverain@up.edu.ph> - 1.6-4
-- Rebuild latest upstream - commit %{short}
+* Fri Apr 01 2022 Arvin Verain <acverain@up.edu.ph> - 1.6-4.20220401git1609e38
+- Rebuild git-master - commit 1609e38
 
 * Sat Nov 14 2020 Petr Šabata <contyk@redhat.com> - 1.6-1
 - Initial packaging
