@@ -5,7 +5,7 @@
 
 Name:            pamix
 Version:         1.6
-Release:         4.%{date}git%{short}.%{?dist}.%{packager}
+Release:         4.%{date}git%{short}%{?dist}.%{packager}
 Summary:         PulseAudio terminal mixer
 License:         MIT
 URL:             https://github.com/patroclos/PAmix
