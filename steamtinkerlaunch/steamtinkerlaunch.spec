@@ -11,6 +11,7 @@ Summary:        Wrapper tool for use with the Steam client for custom launch opt
 License:        GPLv3
 URL:            https://github.com/frostworx/steamtinkerlaunch
 Source0:        %{url}/archive/%{commit}.tar.gz
+Patch0:         steamtinkerlaunch-build.patch
 
 BuildArch:      noarch
 
