@@ -1,7 +1,7 @@
 %global packager rivenirvana
-%global commit   6d636c9aad95790cf5e41f0c3dc58e098ec5679c
-%global short    6d636c9
-%global date     20220401
+%global commit   9b5e8d12b58f8a4ab42e0b61c22e8ed9ee54abb4
+%global short    9b5e8d1
+%global date     20220402
 
 Name:           steamtinkerlaunch
 Version:        9.2
@@ -44,14 +44,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/scalable/apps/steamtinkerlaunch.svg
 
 %changelog
+* Sat Apr 02 2022 Arvin Verain <acverain@up.edu.ph> - 9.2-1.20220402git9b5e8d1
+- Rebuild git-master - commit 9b5e8d1
+
 * Fri Apr 01 2022 Arvin Verain <acverain@up.edu.ph> - 9.2-1.20220401git6d636c9
 - Rebuild git-master - commit 6d636c9
-
-* Sat Mar 5 2022 João Capucho <jcapucho7@gmail.com> - 9.2-1
-- Update to version 9.2
-
-* Sat Jan 15 2022 João Capucho <jcapucho7@gmail.com> - 9.0.1-1
-- Update to version 9.0.1
-
-* Wed Dec 08 2021 João Capucho <jcapucho7@gmail.com> - 8.0-1
-- First steamtinkerlauncher package
