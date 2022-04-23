@@ -1,7 +1,7 @@
 %global packager rivenirvana
-%global commit   2f959bea1bcf9ad03bf34d7cced053a2e77505e8
-%global short    2f959be
-%global date     20220405
+%global commit   7d04486d48e2f722d383a8bd8fae7313c38e536c
+%global short    7d04486
+%global date     20220423
 
 Name:           steamtinkerlaunch
 Version:        9.2
@@ -44,6 +44,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/scalable/apps/steamtinkerlaunch.svg
 
 %changelog
+* Tue Apr 23 2022 Arvin Verain <acverain@up.edu.ph> - 9.2-1.20220423git7d04486
+- Rebuild git-master - commit 7d04486
+
 * Tue Apr 05 2022 Arvin Verain <acverain@up.edu.ph> - 9.2-1.20220405git2f959be
 - Rebuild git-master - commit 2f959be
 
