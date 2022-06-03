@@ -1,7 +1,7 @@
 %global packager rivenirvana
-%global commit   53d0f7d852101e7b0302ef2593378ca66c812772
-%global short    53d0f7d
-%global date     20220501
+%global commit   cd50d1a74add681bb5ac6db62ff5a48143f279ae
+%global short    cd50d1a
+%global date     20220603
 
 Name:           steamtinkerlaunch
 Version:        10.0
@@ -44,6 +44,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/scalable/apps/steamtinkerlaunch.svg
 
 %changelog
+* Fri Jun 03 2022 Arvin Verain <acverain@up.edu.ph> - 10.0-1.20220603gitcd50d1a
+- Rebuild git-master - commit cd50d1a
+
 * Sun May 01 2022 Arvin Verain <acverain@up.edu.ph> - 10.0-1.20220501git53d0f7d
 - Rebuild git-master - commit 53d0f7d
 
