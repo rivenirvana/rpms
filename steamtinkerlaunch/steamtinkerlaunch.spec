@@ -44,5 +44,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/scalable/apps/steamtinkerlaunch.svg
 
 %changelog
-* Thu 11 Aug 2022 Arvin Verain <acverain@up.edu.ph> - 11.0-1.20220811git3b180f2
+* Thu Aug 11 2022 Arvin Verain <acverain@up.edu.ph> - 11.0-1.20220811git3b180f2
 - Rebuild git-master - commit 3b180f2806b296f964128c19c8f1aca0d0ee85a2
