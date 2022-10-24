@@ -1,11 +1,11 @@
---- Makefile.org	2021-12-08 17:48:12.018473739 +0000
-+++ Makefile	2021-12-08 22:18:34.626456745 +0000
-@@ -2,18 +2,23 @@
+--- Makefile	2022-10-24 11:54:54.355277949 +0800
++++ Makefile_copr	2022-10-24 12:47:47.211141388 +0800
+@@ -2,27 +2,31 @@
      PREFIX := /usr
  endif
  
 +ifeq ($(BUILDROOT),)
-+    BUILDROOT := /
++	BUILDROOT := /
 +endif
 +
  .PHONY: build install
@@ -28,5 +28,18 @@
 +	install -Dm644 README.md -t "$(BUILDROOT)$(PREFIX)/share/doc/steamtinkerlaunch"
 +	install -Dm644 "misc/steamtinkerlaunch.desktop" -t "$(BUILDROOT)$(PREFIX)/share/applications"
 +	install -Dm644 "misc/steamtinkerlaunch.svg" -t "$(BUILDROOT)$(PREFIX)/share/icons/hicolor/scalable/apps"
-+	install -Dm644 "misc/steamtinkerlaunch.svg" -t "$(BUILDROOT)$(PREFIX)/share/steamtinkerlaunch/misc"
+ 
+ uninstall:
+-	rm -rf "${PREFIX}/share/icons/hicolor/scalable/apps/misc/steamtinkerlaunch.svg"
+-	rm -rf "${PREFIX}/share/applications/misc/steamtinkerlaunch.desktop"
+-	rm -rf "${PREFIX}/share/doc/steamtinkerlaunch"
++	rm -rf "$(BUILDROOT)${PREFIX}/share/icons/hicolor/scalable/apps/misc/steamtinkerlaunch.svg"
++	rm -rf "$(BUILDROOT)${PREFIX}/share/applications/misc/steamtinkerlaunch.desktop"
++	rm -rf "$(BUILDROOT)${PREFIX}/share/doc/steamtinkerlaunch"
+ 
+-	rm -rf "${PREFIX}/share/steamtinkerlaunch"
++	rm -rf "$(BUILDROOT)${PREFIX}/share/steamtinkerlaunch"
+ 
+-	rm -f "${PREFIX}/bin/steamtinkerlaunch"
++	rm -f "$(BUILDROOT)${PREFIX}/bin/steamtinkerlaunch"
  
