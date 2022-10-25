@@ -1,11 +1,11 @@
 %global packager rivenirvana
-%global commit   bcb82088b870bc42aa96f390d2fc868dbcc09c93
-%global short    bcb8208
-%global date     20221024
+%global commit   6c73a1f8f6d6dd078648d683a97c041f572aa836
+%global short    6c73a1f
+%global date     20221025
 
 Name:           steamtinkerlaunch
 Version:        11.11
-Release:        1.%{date}git%{short}%{?dist}.%{packager}
+Release:        2.%{date}git%{short}%{?dist}.%{packager}
 Summary:        Wrapper tool for use with the Steam client for custom launch options
 
 License:        GPLv3
@@ -44,5 +44,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/scalable/apps/steamtinkerlaunch.svg
 
 %changelog
-* Mon Oct 24 2022 Arvin Verain <arvinverain@protonmail.com> - 11.11-1.20221024gitbcb8208
-- Rebuild git-master - commit bcb82088b870bc42aa96f390d2fc868dbcc09c93
+* Mon Oct 24 2022 Arvin Verain <arvinverain@protonmail.com> - 11.11-2.20221025git6c73a1f
+- Rebuild git-master - 6c73a1f8f6d6dd078648d683a97c041f572aa836
