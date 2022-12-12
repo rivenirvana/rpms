@@ -16,7 +16,7 @@ License:        GPLv3
 #Source0:       %{url}/archive/%{commit}.tar.gz
 URL:            %{forgeurl}
 Source0:        %{forgesource}
-Patch0:         steamtinkerlaunch-build.patch
+#Patch0:        steamtinkerlaunch-build.patch
 
 BuildArch:      noarch
 
