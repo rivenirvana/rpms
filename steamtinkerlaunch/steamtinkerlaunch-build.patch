@@ -1,19 +1,10 @@
 diff --git a/Makefile b/Makefile
-index 86917b8..93b8fad 100644
+index 86917b8..0f2ca28 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -1,5 +1,6 @@
- ifeq ($(PREFIX),)
-     PREFIX := /usr
-+    echo "m1"
- endif
- 
- .PHONY: build install
-@@ -7,22 +8,23 @@ endif
- build:
+@@ -8,21 +8,20 @@ build:
  
  install:
-+	echo "m2"
  	sed "s:^PREFIX=\"/usr\":PREFIX=\"$(PREFIX)\":" -i steamtinkerlaunch
 -	install -Dm755 steamtinkerlaunch -t "$(PREFIX)/bin"
 +	install -Dm755 steamtinkerlaunch -t "$(BUILDROOT)$(PREFIX)/bin"
@@ -29,7 +20,6 @@ index 86917b8..93b8fad 100644
 +	install -Dm644 README.md -t "$(BUILDROOT)$(PREFIX)/share/doc/steamtinkerlaunch"
 +	install -Dm644 "misc/steamtinkerlaunch.desktop" -t "$(BUILDROOT)$(PREFIX)/share/applications"
 +	install -Dm644 "misc/steamtinkerlaunch.svg" -t "$(BUILDROOT)$(PREFIX)/share/icons/hicolor/scalable/apps"
-+	echo "m3"
  
  uninstall:
 -	rm -rf "${PREFIX}/share/icons/hicolor/scalable/apps/misc/steamtinkerlaunch.svg"
