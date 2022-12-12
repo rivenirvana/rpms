@@ -1,6 +1,8 @@
---- Makefile	2022-10-24 11:54:54.355277949 +0800
-+++ Makefile_copr	2022-10-24 12:47:47.211141388 +0800
-@@ -2,27 +2,31 @@
+diff --git a/Makefile b/Makefile
+index 86917b8..4f13851 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,27 +2,30 @@ ifeq ($(PREFIX),)
      PREFIX := /usr
  endif
  
@@ -33,13 +35,13 @@
 -	rm -rf "${PREFIX}/share/icons/hicolor/scalable/apps/misc/steamtinkerlaunch.svg"
 -	rm -rf "${PREFIX}/share/applications/misc/steamtinkerlaunch.desktop"
 -	rm -rf "${PREFIX}/share/doc/steamtinkerlaunch"
+-
+-	rm -rf "${PREFIX}/share/steamtinkerlaunch"
 +	rm -rf "$(BUILDROOT)${PREFIX}/share/icons/hicolor/scalable/apps/misc/steamtinkerlaunch.svg"
 +	rm -rf "$(BUILDROOT)${PREFIX}/share/applications/misc/steamtinkerlaunch.desktop"
 +	rm -rf "$(BUILDROOT)${PREFIX}/share/doc/steamtinkerlaunch"
  
--	rm -rf "${PREFIX}/share/steamtinkerlaunch"
+-	rm -f "${PREFIX}/bin/steamtinkerlaunch"
 +	rm -rf "$(BUILDROOT)${PREFIX}/share/steamtinkerlaunch"
  
--	rm -f "${PREFIX}/bin/steamtinkerlaunch"
 +	rm -f "$(BUILDROOT)${PREFIX}/bin/steamtinkerlaunch"
- 
