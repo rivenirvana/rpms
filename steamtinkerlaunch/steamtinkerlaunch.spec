@@ -7,7 +7,8 @@
 
 Name:           steamtinkerlaunch
 Version:        11.11
-Release:        2.%{date}.git.%{short}%{?dist}.%{packager}
+#Release:       2.%{date}.git.%{short}%{?dist}.%{packager}
+Release:        %autorelease
 Summary:        Wrapper tool for use with the Steam client for custom launch options
 
 License:        GPLv3
