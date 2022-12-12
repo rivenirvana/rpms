@@ -38,8 +38,8 @@ allows customizing and start tools and options for games quickly on the fly
 %build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{__make} install PREFIX=%{_prefix} BUILDROOT=%{buildroot}
+#rm -rf $RPM_BUILD_ROOT
+%make_install PREFIX=%{_prefix} BUILDROOT=%{buildroot}
 
 %files
 %license LICENSE
