@@ -33,7 +33,7 @@ allows customizing and start tools and options for games quickly on the fly
 
 %prep
 #%autosetup -n %{name}-%{commit}
-%forgesetup -v
+%forgeautosetup -v
 
 %build
 
