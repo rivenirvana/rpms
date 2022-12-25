@@ -3,7 +3,7 @@
 %forgemeta -v -i
 
 Name:           steamtinkerlaunch
-Version:        11.11
+Version:        12.0
 Release:        %autorelease
 Summary:        Wrapper tool for use with the Steam client for custom launch options
 
