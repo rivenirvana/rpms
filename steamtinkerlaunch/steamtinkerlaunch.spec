@@ -1,6 +1,6 @@
-%global forgeurl https://github.com/sonic2kk/steamtinkerlaunch
-%global branch master
-%forgemeta -v -i
+#%global forgeurl https://github.com/sonic2kk/steamtinkerlaunch
+#%global branch master
+#%forgemeta -v -i
 
 Name:           steamtinkerlaunch
 Version:        12.12
