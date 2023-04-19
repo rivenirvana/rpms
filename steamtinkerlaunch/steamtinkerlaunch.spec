@@ -1,16 +1,10 @@
-#%global forgeurl https://github.com/sonic2kk/steamtinkerlaunch
-#%global branch master
-#%forgemeta -v -i
-
 Name:           steamtinkerlaunch
 Version:        12.12
 Release:        %autorelease
 Summary:        Wrapper tool for use with the Steam client for custom launch options
 
 License:        GPLv3
-#URL:            %{forgeurl}
 URL:            https://github.com/sonic2kk/steamtinkerlaunch
-#Source0:        %{forgesource}
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 Patch0:         steamtinkerlaunch-build.patch
 
@@ -29,7 +23,6 @@ allows customizing and start tools and options for games quickly on the fly
 
 %prep
 %autosetup -n %{name}-%{version}
-#%forgeautosetup -v
 
 %build
 
