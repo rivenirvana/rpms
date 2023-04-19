@@ -8,8 +8,10 @@ Release:        %autorelease
 Summary:        Wrapper tool for use with the Steam client for custom launch options
 
 License:        GPLv3
-URL:            %{forgeurl}
-Source0:        %{forgesource}
+#URL:            %{forgeurl}
+URL:            https://github.com/sonic2kk/steamtinkerlaunch
+#Source0:        %{forgesource}
+Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 Patch0:         steamtinkerlaunch-build.patch
 
 BuildArch:      noarch
@@ -26,7 +28,8 @@ Steam Tinker Launch is a Linux wrapper tool for use with the Steam client which
 allows customizing and start tools and options for games quickly on the fly
 
 %prep
-%forgeautosetup -v
+%autosetup
+#%forgeautosetup -v
 
 %build
 
