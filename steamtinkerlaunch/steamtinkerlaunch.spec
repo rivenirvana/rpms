@@ -28,7 +28,7 @@ Steam Tinker Launch is a Linux wrapper tool for use with the Steam client which
 allows customizing and start tools and options for games quickly on the fly
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{version}
 #%forgeautosetup -v
 
 %build
