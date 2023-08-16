@@ -480,7 +480,7 @@ fi
 # VERSION has to be present in the GOROOT, for `go install std` to work
 %doc %{goroot}/VERSION
 %dir %{goroot}/doc
-%config ${goroot}/go.env
+%config %{goroot}/go.env
 
 # go files
 %dir %{goroot}
