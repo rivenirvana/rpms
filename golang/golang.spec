@@ -339,7 +339,7 @@ mkdir -p $RPM_BUILD_ROOT%{goroot}
 
 # install everything into libdir (until symlink problems are fixed)
 # https://code.google.com/p/go/issues/detail?id=5830
-cp -apv api bin doc lib pkg src misc test VERSION \
+cp -apv api bin doc lib pkg src misc test VERSION go.env \
    $RPM_BUILD_ROOT%{goroot}
 echo "== 2 =="
 # bz1099206
@@ -480,12 +480,12 @@ fi
 # VERSION has to be present in the GOROOT, for `go install std` to work
 %doc %{goroot}/VERSION
 %dir %{goroot}/doc
-%config %{goroot}/go.env
 
 # go files
 %dir %{goroot}
 %{goroot}/api/
 %{goroot}/lib/time/
+%{goroot}/go.env
 
 # ensure directory ownership, so they are cleaned up if empty
 %dir %{gopath}
