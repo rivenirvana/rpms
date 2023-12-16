@@ -1,0 +1,12 @@
+diff --git a/Makefile b/Makefile
+index 86917b8..381afd7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,7 +7,6 @@ endif
+ build:
+ 
+ install:
+-	sed "s:^PREFIX=\"/usr\":PREFIX=\"$(PREFIX)\":" -i steamtinkerlaunch
+ 	install -Dm755 steamtinkerlaunch -t "$(PREFIX)/bin"
+ 
+ 	install -d "$(PREFIX)/share/steamtinkerlaunch"

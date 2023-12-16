@@ -7,6 +7,7 @@ Summary:        Linux wrapper tool for use with the Steam client for custom laun
 License:        GPLv3
 URL:            https://github.com/sonic2kk/steamtinkerlaunch
 Source0:        %{url}/archive/%{commit}.tar.gz
+Patch0:         steamtinkerlaunch-no-sed-prefix.patch
 
 BuildArch:      noarch
 
