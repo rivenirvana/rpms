@@ -1,3 +1,4 @@
+%global commit  9366dd440fe11bf43412e9fb1c3a35290a1ee61f
 Name:           steamtinkerlaunch
 Version:        12.12
 Release:        1.g9366dd4%{?dist}
@@ -5,7 +6,7 @@ Summary:        Linux wrapper tool for use with the Steam client for custom laun
 
 License:        GPLv3
 URL:            https://github.com/sonic2kk/steamtinkerlaunch
-Source0:        %{url}/archive/9366dd440fe11bf43412e9fb1c3a35290a1ee61f.tar.gz
+Source0:        %{url}/archive/%{commit}.tar.gz
 
 BuildArch:      noarch
 
@@ -23,7 +24,7 @@ GameScope, MangoHud, modding tools and a bunch more. It supports both games
 using Proton and native Linux games, and works on both X11 and Wayland.
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 
