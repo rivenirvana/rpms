@@ -55,9 +55,13 @@ Files for development with %{name}.
 %{_bindir}/gamemodelist
 %{_bindir}/gamemoderun
 %{_bindir}/gamemode-simulate-game
+%{_sysconfdir}/security/limits.d/10-gamemode.conf
+%{_libexecdir}/cpucorectl
 %{_libexecdir}/cpugovctl
 %{_libexecdir}/gpuclockctl
+%{_libexecdir}/procsysctl
 %{_datadir}/polkit-1/actions/com.feralinteractive.GameMode.policy
+%{_datadir}/polkit-1/rules.d/gamemode.rules
 %{_datadir}/dbus-1/services/com.feralinteractive.GameMode.service
 %{_datadir}/gamemode/gamemode.ini
 %{_libdir}/libgamemode*.so.*
