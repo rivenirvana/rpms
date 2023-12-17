@@ -37,8 +37,8 @@ Files for development with %{name}.
 %autosetup -p1
 
 %build
-%meson
-%meson_build -Ddefault_library=both
+%meson -Ddefault_library=both
+%meson_build
 
 %check
 %meson_test
