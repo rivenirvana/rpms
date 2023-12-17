@@ -38,7 +38,7 @@ Files for development with %{name}.
 
 %build
 %meson
-%meson_build
+%meson_build -Ddefault_library=both
 
 %check
 %meson_test
