@@ -1,7 +1,9 @@
 %global commit  8e0a71a0bc42fefbe3b4a0bfe565353cefc8743f
+%global shortc  %(c=%{commit}; echo ${c:0:7})
+
 Name:		gamemode
 Version:	1.8.1
-Release:	3.g8e0a71a%{?dist}
+Release:	3.g%{shortc}%{?dist}
 Summary:	Optimize system performance for games on demand
 License:	BSD
 URL:		https://github.com/FeralInteractive/gamemode
