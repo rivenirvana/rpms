@@ -1,0 +1,61 @@
+--- eza-0.17.3/Cargo.toml	1970-01-01T00:00:01+00:00
++++ eza-0.17.3/Cargo.toml	2024-01-30T12:59:17.477838+00:00
+@@ -16,11 +16,23 @@
+ version = "0.17.3"
+ authors = ["Christina Sørensen <christina@cafkafk.com>"]
+ exclude = [
++    "/completions",
++    "/docs",
+     "/devtools/*",
++    "/man",
++    "/snap",
+     "/Justfile",
+     "/Vagrantfile",
+     "/screenshots.png",
+     "/tests",
++    "/cliff.toml",
++    "/deb.asc",
++    "/deny.toml",
++    "/flake.*",
++    "/powertest.yaml",
++    "/rustfmt.toml",
++    "/rust-toolchain.toml",
++    "/treefmt.nix",
+ ]
+ description = "A modern replacement for ls"
+ homepage = "https://github.com/eza-community/eza"
+@@ -87,10 +99,6 @@
+ 
+ [[bin]]
+ name = "eza"
+-
+-[[bench]]
+-name = "my_benchmark"
+-harness = false
+ 
+ [dependencies.ansiterm]
+ version = "0.12.2"
+@@ -165,10 +173,6 @@
+ [dependencies.zoneinfo_compiled]
+ version = "0.5.1"
+ 
+-[dev-dependencies.criterion]
+-version = "0.5.1"
+-features = ["html_reports"]
+-
+ [dev-dependencies.trycmd]
+ version = "0.14"
+ 
+@@ -180,12 +184,7 @@
+ [features]
+ default = ["git"]
+ git = ["git2"]
+-nix = []
+-nix-generated = []
+-nix-local = []
+ powertest = []
+-vendored-libgit2 = ["git2/vendored-libgit2"]
+-vendored-openssl = ["git2/vendored-openssl"]
+ 
+ [target."cfg(target_os = \"linux\")".dependencies.proc-mounts]
+ version = "0.3"
