@@ -1,5 +1,5 @@
 diff --git a/Cargo.toml b/Cargo.toml
-index 5e90b437..c70e9ed1 100644
+index 094f437a..29c82a89 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -6,11 +6,23 @@ categories = ["command-line-utilities"]
@@ -26,7 +26,7 @@ index 5e90b437..c70e9ed1 100644
  ]
  readme = "README.md"
  homepage = "https://github.com/eza-community/eza"
-@@ -112,22 +124,12 @@ windows-sys = { version = "0.52.0", features = [
+@@ -106,22 +118,12 @@ uzers = "0.11.3"
  chrono = { version = "0.4.34", default-features = false, features = ["clock"] }
  
  [dev-dependencies]
@@ -49,7 +49,7 @@ index 5e90b437..c70e9ed1 100644
  
  # use LTO for smaller binaries (that take longer to build)
  [profile.release]
-@@ -136,7 +138,3 @@ strip = true
+@@ -130,7 +132,3 @@ strip = true
  opt-level = 3
  codegen-units = 1
  panic = 'abort'
