@@ -1,59 +1,61 @@
-diff --git a/Cargo.toml b/Cargo.toml
-index 094f437a..29c82a89 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -6,11 +6,23 @@ categories = ["command-line-utilities"]
- edition = "2021"
- rust-version = "1.70.0"
+--- Cargo.toml.bak1	2024-03-01 20:31:44.935509071 +0800
++++ Cargo.toml	2024-03-01 20:35:05.285087500 +0800
+@@ -16,11 +16,23 @@
+ version = "0.18.5"
+ authors = ["Christina Sørensen <christina@cafkafk.com>"]
  exclude = [
-+  "/completions",
-+  "/docs",
-   "/devtools/*",
-+  "/man",
-+  "/snap",
-   "/Justfile",
-   "/Vagrantfile",
-   "/screenshots.png",
-   "/tests",
-+  "/cliff.toml",
-+  "/deb.asc",
-+  "/deny.toml",
-+  "/flake.*",
-+  "/powertest.yaml",
-+  "/rustfmt.toml",
-+  "/rust-toolchain.toml",
-+  "/treefmt.nix",
++    "/completions",
++    "/docs",
+     "/devtools/*",
++    "/man",
++    "/snap",
+     "/Justfile",
+     "/Vagrantfile",
+     "/screenshots.png",
+     "/tests",
++    "/cliff.toml",
++    "/deb.asc",
++    "/deny.toml",
++    "/flake.*",
++    "/powertest.yaml",
++    "/rustfmt.toml",
++    "/rust-toolchain.toml",
++    "/treefmt.nix",
  ]
- readme = "README.md"
+ description = "A modern replacement for ls"
  homepage = "https://github.com/eza-community/eza"
-@@ -106,22 +118,12 @@ uzers = "0.11.3"
- chrono = { version = "0.4.34", default-features = false, features = ["clock"] }
+@@ -88,10 +100,6 @@
+ [[bin]]
+ name = "eza"
  
- [dev-dependencies]
--criterion = { version = "0.5.1", features = ["html_reports"] }
- trycmd = "0.15"
- 
- [features]
- default = ["git"]
- git = ["git2"]
--vendored-openssl = ["git2/vendored-openssl"]
--vendored-libgit2 = ["git2/vendored-libgit2"]
--# Should only be used inside of flake.nix
--nix = []
--# Should only be used inside of flake.nix locally (not on CI)
--nix-local = []
--# Should only be used inside of flake.nix
--# Shouldn't ever be used in CI (slow!)
- powertest = []
--nix-generated = []
- 
- # use LTO for smaller binaries (that take longer to build)
- [profile.release]
-@@ -130,7 +132,3 @@ strip = true
- opt-level = 3
- codegen-units = 1
- panic = 'abort'
--
 -[[bench]]
 -name = "my_benchmark"
 -harness = false
+-
+ [dependencies.ansiterm]
+ version = "0.12.2"
+ features = ["ansi_colours"]
+@@ -162,10 +170,6 @@
+ [dependencies.zoneinfo_compiled]
+ version = "0.5.1"
+ 
+-[dev-dependencies.criterion]
+-version = "0.5.1"
+-features = ["html_reports"]
+-
+ [dev-dependencies.trycmd]
+ version = "0.15"
+ 
+@@ -177,12 +181,7 @@
+ [features]
+ default = ["git"]
+ git = ["git2"]
+-nix = []
+-nix-generated = []
+-nix-local = []
+ powertest = []
+-vendored-libgit2 = ["git2/vendored-libgit2"]
+-vendored-openssl = ["git2/vendored-openssl"]
+ 
+ [target."cfg(target_os = \"linux\")".dependencies.proc-mounts]
+ version = "0.3"

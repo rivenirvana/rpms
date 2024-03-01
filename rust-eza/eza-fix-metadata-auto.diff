@@ -1,17 +1,15 @@
-diff --git a/Cargo.toml b/Cargo.toml
-index 5e90b437..094f437a 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -102,12 +102,6 @@ proc-mounts = "0.3"
- [target.'cfg(unix)'.dependencies]
- uzers = "0.11.3"
+--- Cargo.toml.bak	2024-03-01 20:22:17.140203239 +0800
++++ Cargo.toml	2024-03-01 20:23:04.457811296 +0800
+@@ -187,12 +187,5 @@
+ [target."cfg(target_os = \"linux\")".dependencies.proc-mounts]
+ version = "0.3"
  
--[target.'cfg(target_os = "windows")'.dependencies]
--windows-sys = { version = "0.52.0", features = [
--  "Win32_System_Console",
--  "Win32_Foundation",
--] }
+-[target."cfg(target_os = \"windows\")".dependencies.windows-sys]
+-version = "0.52.0"
+-features = [
+-    "Win32_System_Console",
+-    "Win32_Foundation",
+-]
 -
- [build-dependencies]
- chrono = { version = "0.4.34", default-features = false, features = ["clock"] }
- 
+ [target."cfg(unix)".dependencies.uzers]
+ version = "0.11.3"
