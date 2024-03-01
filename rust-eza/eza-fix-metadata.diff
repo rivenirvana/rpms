@@ -1,5 +1,5 @@
 diff --git a/Cargo.toml b/Cargo.toml
-index 5e90b437..7aac6223 100644
+index 5e90b437..c70e9ed1 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -6,11 +6,23 @@ categories = ["command-line-utilities"]
@@ -26,17 +26,7 @@ index 5e90b437..7aac6223 100644
  ]
  readme = "README.md"
  homepage = "https://github.com/eza-community/eza"
-@@ -102,32 +114,17 @@ proc-mounts = "0.3"
- [target.'cfg(unix)'.dependencies]
- uzers = "0.11.3"
- 
--[target.'cfg(target_os = "windows")'.dependencies]
--windows-sys = { version = "0.52.0", features = [
--  "Win32_System_Console",
--  "Win32_Foundation",
--] }
--
- [build-dependencies]
+@@ -112,22 +124,12 @@ windows-sys = { version = "0.52.0", features = [
  chrono = { version = "0.4.34", default-features = false, features = ["clock"] }
  
  [dev-dependencies]
@@ -53,13 +43,13 @@ index 5e90b437..7aac6223 100644
 -# Should only be used inside of flake.nix locally (not on CI)
 -nix-local = []
 -# Should only be used inside of flake.nix
- # Shouldn't ever be used in CI (slow!)
+-# Shouldn't ever be used in CI (slow!)
  powertest = []
 -nix-generated = []
  
  # use LTO for smaller binaries (that take longer to build)
  [profile.release]
-@@ -136,7 +133,3 @@ strip = true
+@@ -136,7 +138,3 @@ strip = true
  opt-level = 3
  codegen-units = 1
  panic = 'abort'
