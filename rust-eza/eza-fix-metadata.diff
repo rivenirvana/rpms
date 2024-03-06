@@ -1,7 +1,7 @@
---- eza-0.18.6/Cargo.toml	2024-03-01 20:31:44.935509071 +0800
-+++ eza-0.18.6/Cargo.toml	2024-03-01 20:35:05.285087500 +0800
+--- eza-0.18.6/Cargo.toml	2024-03-06 21:45:49.759766104 +0800
++++ eza-0.18.6/Cargo.toml	2024-03-06 21:48:16.264651154 +0800
 @@ -16,11 +16,23 @@
- version = "0.18.5"
+ version = "0.18.6"
  authors = ["Christina Sørensen <christina@cafkafk.com>"]
  exclude = [
 +    "/completions",
@@ -32,10 +32,10 @@
 -name = "my_benchmark"
 -harness = false
 -
- [dependencies.ansiterm]
- version = "0.12.2"
- features = ["ansi_colours"]
-@@ -162,10 +170,6 @@
+ [dependencies.ansi-width]
+ version = "0.1.0"
+ 
+@@ -168,10 +176,6 @@
  [dependencies.zoneinfo_compiled]
  version = "0.5.1"
  
@@ -46,7 +46,7 @@
  [dev-dependencies.trycmd]
  version = "0.15"
  
-@@ -177,12 +181,7 @@
+@@ -183,12 +187,7 @@
  [features]
  default = ["git"]
  git = ["git2"]
