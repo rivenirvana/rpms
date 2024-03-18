@@ -40,7 +40,7 @@ Files for development with %{name}.
 %autosetup -n %{name}-%{commit}
 
 %build
-%meson -Ddefault_library=static
+%meson -Ddefault_library=library
 %meson_build
 
 %check
