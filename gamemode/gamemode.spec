@@ -3,11 +3,14 @@
 
 Name:		gamemode
 Version:	1.8.1
-Release:	4.g%{shortc}%{?dist}
+Release:	5.g%{shortc}%{?dist}
 Summary:	Optimize system performance for games on demand
 License:	BSD
 URL:		https://github.com/FeralInteractive/gamemode
 Source0:	%{url}/archive/%{commit}.tar.gz
+Patch0:		463.patch
+Patch1:		464.patch
+Patch2:		466.patch
 
 BuildRequires: gcc
 BuildRequires: asciidoc
