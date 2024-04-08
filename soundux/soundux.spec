@@ -44,15 +44,16 @@ With Soundux you can play audio to a specific application on Linux.
 %prep
 %autosetup -n %{app_name}
 
-sed -i -e "s/-Werror//g" -e "s/-Wno-gnu//g" -e "s/-Wno-unused-lambda-capture//g" CMakeLists.txt
+#sed -i -e "s/-Werror//g" -e "s/-Wno-gnu//g" -e "s/-Wno-unused-lambda-capture//g" CMakeLists.txt
+#sed -i -e "s/-Werror//g" CMakeLists.txt
 
 %build
 %set_build_flags
 %cmake \
     -DCMAKE_CXX_FLAGS="-include cstdint \
     -Wno-error=deprecated-declarations  \
-    -fPIC $CXXFLAGS"                    \
-    %{?with_embedded:-DEMBED_PATH=ON}
+    -fPIC $CXXFLAGS                     \
+    %{?with_embedded:-DEMBED_PATH=ON}"
 %cmake_build --config Release
 
 %install
