@@ -28,14 +28,13 @@ BuildRequires:  pipewire-devel
 BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  webkit2gtk3-devel
 
+Requires:       ffmpeg
 Requires:       libappindicator-gtk3
 Requires:       libwnck3
 Requires:       (pipewire or pulseaudio)
 Requires:       redhat-lsb-core
 Requires:       webkit2gtk3
-
-Recommends:     ffmpeg
-Recommends:     youtube-dl
+Requires:       yt-dlp
 
 %description
 Soundux is a cross-platform soundboard that features a simple user interface.
@@ -43,9 +42,6 @@ With Soundux you can play audio to a specific application on Linux.
 
 %prep
 %autosetup -n %{app_name}
-
-#sed -i -e "s/-Werror//g" -e "s/-Wno-gnu//g" -e "s/-Wno-unused-lambda-capture//g" CMakeLists.txt
-#sed -i -e "s/-Werror//g" CMakeLists.txt
 
 %build
 %set_build_flags
@@ -79,4 +75,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{app_uuid}.xm
 
 %changelog
 * Mon Apr 08 2024 Arvin Verain <arvinverain@proton.me> - 0.2.7-1
+- Update spec
+
+* Wed May 26 2021 Arvin Verain <arvinverain@proton.me> - 0.2.7-1
 - Initial COPR package
