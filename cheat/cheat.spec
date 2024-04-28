@@ -21,7 +21,7 @@ commands that they use frequently, but not frequently enough to remember.}
 %global godocs      README.md CONTRIBUTING.md cmd/cheat/docopt.txt
 
 Name:           cheat
-Release:        12.g%{shortc}%{?dist}
+Release:        12%{?dist}
 Summary:        Help for various commands and their use cases
 
 License:        MIT
