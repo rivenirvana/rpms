@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index 86917b8..381afd7 100644
+index 19a7784..5001392 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -7,7 +7,6 @@ endif
