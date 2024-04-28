@@ -114,9 +114,10 @@ mkdir -m 0755 -p %{buildroot}%{_datadir}/cheat
 
 for sheet in cheatsheets-%{sheets_commit}/* ; do
   if [[ -d "$sheet" ]]; then
-    mkdir -m 0755 -p %{buildroot}%{_datadir}/cheat/"$sheet"
-    for new_sheet in "cheatsheets-%{sheets_commit}/$sheet/"* ; do
-      install -m 0644 -p $new_sheet "%{buildroot}%{_datadir}/cheat/$sheet/"
+    sheet_dir=${sheet##*/}
+    mkdir -m 0755 -p %{buildroot}%{_datadir}/cheat/"$sheet_dir"
+    for new_sheet in "cheatsheets-%{sheets_commit}/$sheet_dir/"* ; do
+      install -m 0644 -p $new_sheet "%{buildroot}%{_datadir}/cheat/$sheet_dir/"
     done
   else
     install -m 0644 -p $sheet %{buildroot}%{_datadir}/cheat/
