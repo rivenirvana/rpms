@@ -30,14 +30,14 @@ Source0:        %{gosource}
 Source1:        %{sheets_url}/archive/%{sheets_commit}.tar.gz
 Source2:        cheat-config-FEDORA.yml
 
-BuildRequires:  golang(github.com/alecthomas/chroma/quick)
+BuildRequires:  golang(github.com/alecthomas/chroma/v2/quick)
+BuildRequires:  golang(github.com/davecgh/go-spew/spew)
 BuildRequires:  golang(github.com/docopt/docopt-go)
+BuildRequires:  golang(github.com/go-git/go-git/v5)
 BuildRequires:  golang(github.com/mattn/go-isatty)
 BuildRequires:  golang(github.com/mgutz/ansi)
 BuildRequires:  golang(github.com/mitchellh/go-homedir)
-BuildRequires:  golang(gopkg.in/yaml.v2)
-BuildRequires:  golang(gopkg.in/yaml.v1)
-BuildRequires:  golang(github.com/davecgh/go-spew/spew)
+BuildRequires:  golang(gopkg.in/yaml.v3)
 
 Recommends:     cheat-community-cheatsheets
 
