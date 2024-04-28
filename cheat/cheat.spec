@@ -35,7 +35,6 @@ BuildRequires:  golang(github.com/davecgh/go-spew/spew)
 BuildRequires:  golang(github.com/docopt/docopt-go)
 BuildRequires:  golang(github.com/go-git/go-git/v5)
 BuildRequires:  golang(github.com/mattn/go-isatty)
-BuildRequires:  golang(github.com/mgutz/ansi)
 BuildRequires:  golang(github.com/mitchellh/go-homedir)
 BuildRequires:  golang(gopkg.in/yaml.v3)
 
