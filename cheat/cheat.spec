@@ -113,10 +113,10 @@ install -m 0755 -vp %{gobuilddir}/bin/cheat %{buildroot}%{_bindir}/
 mkdir -m 0755 -p %{buildroot}%{_datadir}/cheat
 
 for sheet in cheatsheets-%{sheets_commit}/* ; do
-  if [[ -d $sheet ]]; then
-    mkdir -m 0755 -p %{buildroot}%{_datadir}/cheat/$sheet
-    for vim_sheet in cheatsheets-%{sheets_commit}/$sheet/* ; do
-      install -m 0644 -p $vim_sheet %{buildroot}%{_datadir}/cheat/$sheet/
+  if [[ -d "$sheet" ]]; then
+    mkdir -m 0755 -p %{buildroot}%{_datadir}/cheat/"$sheet"
+    for new_sheet in cheatsheets-%{sheets_commit}/"$sheet"/* ; do
+      install -m 0644 -p $new_sheet %{buildroot}%{_datadir}/cheat/"$sheet"/
     done
   else
     install -m 0644 -p $sheet %{buildroot}%{_datadir}/cheat/
