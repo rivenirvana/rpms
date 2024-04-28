@@ -28,7 +28,7 @@ diff-so-fancy strives to make your diffs human readable instead of machine
 readable. This helps improve code quality and helps you spot defects faster.
 
 %prep
-%autosetup
+%autosetup -p1 -n %{name}-%{commit}
 
 # DiffHighlight is included
 %global __requires_exclude ^perl\\((DiffHighlight)
