@@ -110,10 +110,14 @@ install -m 0755 -vd %{buildroot}%{_bindir}
 install -m 0755 -vp %{gobuilddir}/bin/cheat %{buildroot}%{_bindir}/
 
 # Install cheatsheets
-mkdir -m 0755 -p %{buildroot}/%{_datadir}/cheat
+mkdir -m 0755 -p %{buildroot}%{_datadir}/cheat/vim-plugins
+
+for vim_sheet in cheatsheets-%{sheets_commit}/vim-plugins/* ; do
+  install -m 0644 -p $vim_sheet %{buildroot}%{_datadir}/cheat/vim-plugins/
+done
 
 for sheet in cheatsheets-%{sheets_commit}/* ; do
-  install -m 0644 -p $sheet %{buildroot}/%{_datadir}/cheat/
+  install -m 0644 -p $sheet %{buildroot}%{_datadir}/cheat/
 done
 
 mkdir -m 0755 -p %{buildroot}%{_sysconfdir}/cheat
