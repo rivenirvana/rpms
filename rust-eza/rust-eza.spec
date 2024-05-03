@@ -5,7 +5,7 @@
 %global crate eza
 
 Name:           rust-eza
-Version:        0.18.13
+Version:        0.18.14
 Release:        %autorelease
 Summary:        Modern replacement for ls
 
