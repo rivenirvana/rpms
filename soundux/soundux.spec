@@ -6,6 +6,7 @@
 %global httplib         cpp-httplib
 %global httplib_ver     0.15.3
 %global httplib_url     https://github.com/yhirose/%{httplib}
+%global httplib_dst     %{app_name}/lib/
 
 %bcond_with embedded
 
@@ -49,9 +50,9 @@ With Soundux you can play audio to a specific application on Linux.
 
 %prep
 %autosetup -n %{app_name}
-rm -rf %{app_name}/lib/%{httplib}
-tar -xf %{Source1} -C %{app_name}/lib
-mv %{app_name}/%{httplib}-%{httplib_ver} %{app_name}/%{httplib}
+rm -rf %{httplib_dst}%{httplib}
+tar -xf %{Source1} -C %{httplib_dst}
+mv %{httplib_dst}%{httplib}-%{httplib_ver} %{httplib_dst}%{httplib}
 
 %build
 %set_build_flags
