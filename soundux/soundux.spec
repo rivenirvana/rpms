@@ -3,6 +3,9 @@
 %global app_uuid        io.github.%{app_name}.metainfo
 %global repo_url        https://github.com/%{app_name}/%{app_name}
 %global libtiny         libtiny-process-library.so
+%global httplib         cpp-httplib
+%global httplib_ver     0.15.3
+%global httplib_url     https://github.com/yhirose/%{httplib}
 
 %bcond_with embedded
 
@@ -14,6 +17,10 @@ License:        GPLv3+
 URL:            https://soundux.rocks
 
 Source0:        %{repo_url}/releases/download/%{version}/%{name}-%{version}.tar.gz
+Source1:        %{httplib_url}/archive/refs/tags/v%{httplib_ver}.tar.gz
+
+Patch0:         webviewpp-build-fix.patch
+Patch1:         guardpp-build-fix.patch
 
 BuildRequires:  cmake
 BuildRequires:  gcc
@@ -42,6 +49,9 @@ With Soundux you can play audio to a specific application on Linux.
 
 %prep
 %autosetup -n %{app_name}
+rm -rf %{app_name}/lib/%{httplib}
+tar -xf %{Source1} -C %{app_name}/lib
+mv %{app_name}/%{httplib}-%{httplib_ver} %{app_name}/%{httplib}
 
 %build
 %set_build_flags
@@ -55,8 +65,8 @@ With Soundux you can play audio to a specific application on Linux.
 %install
 %cmake_install
 
-install -Dm 0755 %{__cmake_builddir}/lib/tiny-process-library/%{libtiny} %{buildroot}/%{_libdir}/%{libtiny}
-install -dm 0755 %{buildroot}/%{_bindir}
+install -Dm 0755 %{__cmake_builddir}/lib/tiny-process-library/%{libtiny} %{buildroot}%{_libdir}/%{libtiny}
+install -dm 0755 %{buildroot}%{_bindir}
 ln -s /opt/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 
 %check
@@ -74,7 +84,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{app_uuid}.xm
 %{_metainfodir}/%{app_uuid}.xml
 
 %changelog
-* Mon Apr 08 2024 Arvin Verain <arvinverain@proton.me> - 0.2.7-1
+* Mon Apr 08 2024 Arvin Verain <arvinverain@proton.me> - 0.2.7-2
 - Update spec
 
 * Wed May 26 2021 Arvin Verain <arvinverain@proton.me> - 0.2.7-1
