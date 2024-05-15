@@ -40,7 +40,7 @@ Requires:       libappindicator-gtk3
 Requires:       libwnck3
 Requires:       (pipewire or pulseaudio)
 Requires:       redhat-lsb-core
-Requires:       webkit2gtk3
+Requires:       webkit2gtk4.1
 Requires:       yt-dlp
 
 %description
