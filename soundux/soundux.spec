@@ -49,7 +49,7 @@ Soundux is a cross-platform soundboard that features a simple user interface.
 With Soundux you can play audio to a specific application on Linux.
 
 %prep
-%autosetup -n %{app_name}
+%autosetup -p1 -n %{app_name}
 rm -rf %{httplib_dst}%{httplib}
 tar -xf %{Source1} -C %{httplib_dst}
 mv %{httplib_dst}%{httplib}-%{httplib_ver} %{httplib_dst}%{httplib}
