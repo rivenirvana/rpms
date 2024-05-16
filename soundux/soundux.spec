@@ -33,14 +33,14 @@ BuildRequires:  libX11-devel
 BuildRequires:  openssl-devel
 BuildRequires:  pipewire-devel
 BuildRequires:  pulseaudio-libs-devel
-BuildRequires:  webkit2gtk3-devel
+BuildRequires:  webkit2gtk4.1-devel
 
 Requires:       ffmpeg
 Requires:       libappindicator-gtk3
 Requires:       libwnck3
 Requires:       (pipewire or pulseaudio)
 Requires:       redhat-lsb-core
-Requires:       webkit2gtk4.1
+Requires:       webkit2gtk-4.1
 Requires:       yt-dlp
 
 %description
@@ -56,6 +56,7 @@ mv lib/%{httplib}-%{httplib_ver} lib/%{httplib}
 %build
 %set_build_flags
 %cmake \
+    -DCMAKE_BUILD_TYPE=Release          \
     -DCMAKE_CXX_FLAGS="-include cstdint \
     -Wno-error=deprecated-declarations  \
     -fPIC $CXXFLAGS                     \
