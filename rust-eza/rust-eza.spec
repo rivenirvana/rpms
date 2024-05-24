@@ -5,7 +5,7 @@
 %global crate eza
 
 Name:           rust-eza
-Version:        0.18.14
+Version:        0.18.16
 Release:        %autorelease
 Summary:        Modern replacement for ls
 
@@ -60,6 +60,7 @@ Provides:       exa = %{version}-%{release}
 %doc INSTALL.md
 %doc README.md
 %doc SECURITY.md
+%{_mandir}/man{1,5}/*.{1,5}*
 %{_bindir}/exa
 %{_bindir}/eza
 %{bash_completions_dir}/eza
@@ -136,12 +137,12 @@ use the "powertest" feature of the "%{crate}" crate.
 %prep
 %autosetup -n %{crate}-%{version} -p1
 %cargo_prep
-sed -i 's/offline = true/offline = false/' .cargo/config
-sed -i '/\[source.local-registry\]/d' .cargo/config
-sed -i '/directory = "\/usr\/share\/cargo\/registry"/d' .cargo/config
-sed -i '/\[source.crates-io\]/d' .cargo/config
-sed -i '/registry = "https:\/\/crates.io"/d' .cargo/config
-sed -i '/replace-with = "local-registry"/d' .cargo/config
+sed -i -e 's/offline = true/offline = false/'            \
+    -e '/\[source.local-registry\]/d'                    \
+    -e '/directory = "\/usr\/share\/cargo\/registry"/d'  \
+    -e '/\[source.crates-io\]/d'                         \
+    -e '/registry = "https:\/\/crates.io"/d'             \
+    -e '/replace-with = "local-registry"/d'              .cargo/config
 
 %if %{without bundled}
 %generate_buildrequires
@@ -161,7 +162,7 @@ sed -i '/replace-with = "local-registry"/d' .cargo/config
     --prefix none                                                   \
     --format "# {l}"                                                \
     | sed -e "s: / :/:g" -e "s:/: OR :g"                            \
-    | sort -u                                                       
+    | sort -u
 # cargo_license
 %{__cargo} tree                                                     \
     -Z avoid-dev-deps                                               \
@@ -180,9 +181,13 @@ sed -i '/replace-with = "local-registry"/d' .cargo/config
 # create compatibility symlink for exa
 ln -s eza %{buildroot}/%{_bindir}/exa
 # install shell completions
-install -Dpm 0644 completions/bash/eza -t %{buildroot}/%{bash_completions_dir}/
+install -Dpm 0644 completions/bash/eza      -t %{buildroot}/%{bash_completions_dir}/
 install -Dpm 0644 completions/fish/eza.fish -t %{buildroot}/%{fish_completions_dir}/
-install -Dpm 0644 completions/zsh/_eza -t %{buildroot}/%{zsh_completions_dir}/
+install -Dpm 0644 completions/zsh/_eza      -t %{buildroot}/%{zsh_completions_dir}/
+# install manpages
+install -Dpm 0644 man/eza.1.md                    -t %{buildroot}/%{_mandir}/man1/
+install -Dpm 0644 man/eza_colors-explanation.5.md -t %{buildroot}/%{_mandir}/man5/
+install -Dpm 0644 man/eza_colors.5.md             -t %{buildroot}/%{_mandir}/man5/
 
 %if %{with check}
 %check
