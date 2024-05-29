@@ -78,12 +78,14 @@ install -dm 0755 %{buildroot}%{_bindir}/
 install -dm 0755 %{buildroot}%{_libdir}/
 install -dm 0755 %{buildroot}%{_datadir}/%{name}
 install -Dm 0755 %{__cmake_builddir}/lib/tiny-process-library/%{libtiny} %{buildroot}%{_libdir}/%{libtiny}
-install -Dm 0755 %{__cmake_builddir}/soundux-%{version} %{buildroot}%{_bindir}/%{name}
+install -Dm 0755 %{__cmake_builddir}/soundux-%{version} %{buildroot}%{_datadir}/%{name}/%{name}-%{version}
 install -Dm 0755 %{SOURCE2} %{buildroot}%{_bindir}/youtube-dl
+ln -s %{_datadir}/%{name}/%{name}-%{version} %{buildroot}%{_datadir}/%{name}/%{name}
+ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 cp -r %{buildroot}/opt/%{name}/dist/ %{buildroot}%{_datadir}/%{name}/dist/
 rm -r %{buildroot}/opt
 
-chrpath --delete %{buildroot}/%{_bindir}/%{name}
+chrpath --delete %{buildroot}/%{_datadir}/%{name}/%{name}-%{version}
 
 desktop-file-install                         \
   --delete-original                          \
@@ -101,11 +103,15 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{app_uuid}.xm
 %{_bindir}/youtube-dl
 %{_libdir}/%{libtiny}
 %{_datadir}/%{name}/dist/
+%{_datadir}/%{name}/%{name}*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_metainfodir}/%{app_uuid}.xml
 
 %changelog
+* Thu May 30 2024 Arvin Verain <arvinverain@proton.me> - 0.2.7-3
+- Update spec
+
 * Mon Apr 08 2024 Arvin Verain <arvinverain@proton.me> - 0.2.7-2
 - Update spec
 
