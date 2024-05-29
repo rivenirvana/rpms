@@ -11,7 +11,7 @@
 
 Name:           soundux
 Version:        0.2.7
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A cross-platform soundboard
 License:        GPLv3+
 URL:            https://soundux.rocks
