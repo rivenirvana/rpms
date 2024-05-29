@@ -21,6 +21,7 @@ Source1:        %{httplib_url}/archive/refs/tags/v%{httplib_ver}.tar.gz
 
 Patch0:         webviewpp-build-fix.patch
 Patch1:         guardpp-build-fix.patch
+Patch2:         include.patch
 
 BuildRequires:  cmake
 BuildRequires:  gcc
