@@ -46,7 +46,7 @@ Requires:       libappindicator-gtk3
 Requires:       libwnck3
 Requires:       (pipewire or pulseaudio)
 Requires:       redhat-lsb-core
-Requires:       youtube-dl
+Requires:       yt-dlp
 
 # Provide own youtube-dl script that uses yt-dlp compat
 Conflicts:      youtube-dl
