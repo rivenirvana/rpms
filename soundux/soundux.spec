@@ -24,6 +24,8 @@ Patch1:         guardpp-build-fix.patch
 Patch2:         include.patch
 
 BuildRequires:  cmake
+BuildRequires:  chrpath
+BuildRequires:  desktop-file-utils
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  gtk3-devel
@@ -69,7 +71,11 @@ mv lib/%{httplib}-%{httplib_ver} lib/%{httplib}
 
 install -Dm 0755 %{__cmake_builddir}/lib/tiny-process-library/%{libtiny} %{buildroot}%{_libdir}/%{libtiny}
 install -dm 0755 %{buildroot}%{_bindir}
-ln -s /opt/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
+install -dm 0755 %{buildroot}/%{_libdir}/
+cp %{__cmake_builddir}/soundux-%{version} %{buildroot}/%{_bindir}/%{name}
+rm -rf %{buildroot}/opt
+
+chrpath --delete %{buildroot}/%{_bindir}/%{name}
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
@@ -78,7 +84,6 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{app_uuid}.xm
 %files
 %license LICENSE
 %doc README.md
-/opt/%{name}
 %{_bindir}/%{name}
 %{_libdir}/%{libtiny}
 %{_datadir}/applications/%{name}.desktop
