@@ -30,6 +30,7 @@ BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  gtk3-devel
 BuildRequires:  libappindicator-gtk3-devel
+BuildRequires: libappstream-glib
 BuildRequires:  libdwarf-devel
 BuildRequires:  libwnck3-devel
 BuildRequires:  libX11-devel
