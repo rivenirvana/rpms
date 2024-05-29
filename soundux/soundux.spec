@@ -30,7 +30,7 @@ BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  gtk3-devel
 BuildRequires:  libappindicator-gtk3-devel
-BuildRequires: libappstream-glib
+BuildRequires:  libappstream-glib
 BuildRequires:  libdwarf-devel
 BuildRequires:  libwnck3-devel
 BuildRequires:  libX11-devel
@@ -44,7 +44,6 @@ Requires:       libappindicator-gtk3
 Requires:       libwnck3
 Requires:       (pipewire or pulseaudio)
 Requires:       redhat-lsb-core
-Requires:       webkit2gtk-4.1
 Requires:       yt-dlp
 
 %description
