@@ -1,0 +1,13 @@
+diff --git a/deployment/soundux.desktop b/deployment/soundux.desktop
+index a0a015d..0a51bc2 100755
+--- a/deployment/soundux.desktop
++++ b/deployment/soundux.desktop
+@@ -3,7 +3,7 @@ Type=Application
+ Version=1.0
+ Name=Soundux
+ GenericName=Soundboard
+-Exec=/opt/soundux/soundux
++Exec=soundux
+ Icon=soundux
+ Terminal=false
+ Categories=Audio;Music;Player;AudioVideo;

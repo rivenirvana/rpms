@@ -7,7 +7,7 @@
 %global httplib_ver     0.15.3
 %global httplib_url     https://github.com/yhirose/%{httplib}
 
-%bcond_with embedded
+%bcond embedded 0
 
 Name:           soundux
 Version:        0.2.7
@@ -18,10 +18,12 @@ URL:            https://soundux.rocks
 
 Source0:        %{repo_url}/releases/download/%{version}/%{name}-%{version}.tar.gz
 Source1:        %{httplib_url}/archive/refs/tags/v%{httplib_ver}.tar.gz
+Source2:        youtube-dl
 
 Patch0:         webviewpp-build-fix.patch
 Patch1:         guardpp-build-fix.patch
 Patch2:         include.patch
+Patch3:         desktop-exec.patch
 
 BuildRequires:  cmake
 BuildRequires:  chrpath
@@ -44,7 +46,10 @@ Requires:       libappindicator-gtk3
 Requires:       libwnck3
 Requires:       (pipewire or pulseaudio)
 Requires:       redhat-lsb-core
-Requires:       yt-dlp
+Requires:       youtube-dl
+
+# Provide own youtube-dl script that uses yt-dlp compat
+Conflicts:      youtube-dl
 
 %description
 Soundux is a cross-platform soundboard that features a simple user interface.
@@ -69,23 +74,33 @@ mv lib/%{httplib}-%{httplib_ver} lib/%{httplib}
 %install
 %cmake_install
 
+install -dm 0755 %{buildroot}%{_bindir}/
+install -dm 0755 %{buildroot}%{_libdir}/
+install -dm 0755 %{buildroot}%{_datadir}/%{name}
 install -Dm 0755 %{__cmake_builddir}/lib/tiny-process-library/%{libtiny} %{buildroot}%{_libdir}/%{libtiny}
-install -dm 0755 %{buildroot}%{_bindir}
-install -dm 0755 %{buildroot}/%{_libdir}/
-cp %{__cmake_builddir}/soundux-%{version} %{buildroot}/%{_bindir}/%{name}
-rm -rf %{buildroot}/opt
+install -Dm 0755 %{__cmake_builddir}/soundux-%{version} %{buildroot}%{_bindir}/%{name}
+install -Dm 0755 %{SOURCE2} %{buildroot}%{_bindir}/youtube-dl
+cp -r %{buildroot}/opt/%{name}/dist/ %{buildroot}%{_datadir}/%{name}/dist/
+rm -r %{buildroot}/opt
 
 chrpath --delete %{buildroot}/%{_bindir}/%{name}
+
+desktop-file-install                         \
+  --delete-original                          \
+  --dir=%{buildroot}%{_datadir}/applications \
+  %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{app_uuid}.xml
 
 %files
-%license LICENSE
 %doc README.md
+%license LICENSE
 %{_bindir}/%{name}
+%{_bindir}/youtube-dl
 %{_libdir}/%{libtiny}
+%{_datadir}/%{name}/dist/
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_metainfodir}/%{app_uuid}.xml
