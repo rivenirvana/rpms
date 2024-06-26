@@ -129,7 +129,7 @@ sed -i -e 's/offline = true/offline = false/'            \
     -e '/directory = "\/usr\/share\/cargo\/registry"/d'  \
     -e '/\[source.crates-io\]/d'                         \
     -e '/registry = "https:\/\/crates.io"/d'             \
-    -e '/replace-with = "local-registry"/d'              .cargo/config
+    -e '/replace-with = "local-registry"/d'              .cargo/config.toml
 
 %if %{without bundled}
 %generate_buildrequires
