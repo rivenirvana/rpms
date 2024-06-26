@@ -3,7 +3,7 @@
 
 Name:		gamemode
 Version:	1.8.1
-Release:	6.g%{shortc}%{?dist}
+Release:	7.g%{shortc}%{?dist}
 Summary:	Optimize system performance for games on demand
 License:	BSD
 URL:		https://github.com/FeralInteractive/gamemode
@@ -58,7 +58,6 @@ Files for development with %{name}.
 %{_bindir}/gamemodelist
 %{_bindir}/gamemoderun
 %{_bindir}/gamemode-simulate-game
-%{_sysconfdir}/security/limits.d/10-gamemode.conf
 %{_libexecdir}/cpucorectl
 %{_libexecdir}/cpugovctl
 %{_libexecdir}/gpuclockctl
@@ -69,7 +68,8 @@ Files for development with %{name}.
 %{_datadir}/gamemode/gamemode.ini
 %{_libdir}/libgamemode*.so.*
 %{_libdir}/libgamemode*.so
-/usr/lib/sysusers.d/gamemode.conf
+%{_sysconfdir}/security/limits.d/10-gamemode.conf
+%{_prefix}/lib/sysusers.d/gamemode.conf
 %{_userunitdir}/gamemoded.service
 %{_mandir}/man8/gamemoded.8*
 %{_mandir}/man1/gamemoderun.1*
