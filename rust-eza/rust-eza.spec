@@ -5,20 +5,13 @@
 %global crate eza
 
 Name:           rust-eza
-Version:        0.18.22
+Version:        0.18.24
 Release:        %autorelease
 Summary:        Modern replacement for ls
 
 License:        MIT
 URL:            https://crates.io/crates/eza
 Source:         %{crates_source}
-# Automatically generated patch to strip dependencies and normalize metadata
-Patch:          eza-fix-metadata-auto.diff
-# Manually created patch for downstream crate metadata changes
-# * drop feature for statically linking with OpenSSL
-# * drop unused, benchmark-only criterion dev-dependency
-# * drop features that are specific to NixOS packaging
-# * exclude files that are only useful for upstream development
 Patch:          eza-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
