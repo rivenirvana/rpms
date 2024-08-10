@@ -1,5 +1,4 @@
 %global debug_package %{nil}
-
 %bcond bundled 1
 %if %{with bundled}
 %global gomodulesmode GO111MODULE=on
@@ -11,7 +10,7 @@
 
 Name:       lazygit
 Version:    0.43.1
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    Simple terminal UI for git commands
 
 License:    MIT
@@ -53,14 +52,15 @@ export GOPATH=$(pwd):%{gopath}
 %if %{without bundled}
 export GOPATH=$(pwd):%{gopath}
 %endif
-%gobuild -o %{gobuilddir}/bin/%{name} %{goipath}
+%gobuild \
+    -ldflags "-X main.version=%{version}" \
+    -o %{gobuilddir}/bin/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
 
 
 %install
 install -Dpm 0755 %{gobuilddir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
-
 
 %check
 export %{gomodulesmode}
