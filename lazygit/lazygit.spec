@@ -52,7 +52,8 @@ export GOPATH=$(pwd):%{gopath}
 %if %{without bundled}
 export GOPATH=$(pwd):%{gopath}
 %endif
-%gobuild -ldflags "-X main.version=%{version}" -o %{gobuilddir}/bin/%{name} %{goipath}
+GO_LDFLAGS="-X main.version=%{version}"
+%gobuild -o %{gobuilddir}/bin/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
 
 
