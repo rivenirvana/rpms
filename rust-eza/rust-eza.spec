@@ -15,6 +15,7 @@ Source:         %{crates_source}
 Patch:          eza-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
+BuildRequires:  go-md2man
 
 %global _description %{expand:
 A modern replacement for ls.}
@@ -157,6 +158,11 @@ sed -i -e 's/offline = true/offline = false/'            \
     | sed -e "s: ($(pwd)[^)]*)::g" -e "s: / :/:g" -e "s:/: OR :g"   \
     | sort -u                                                       > LICENSE.dependencies
 
+cd man
+go-md2man -in eza.1.md -out eza.1
+go-md2man -in eza_colors-explanation.5.md -out eza_colors-explanation.5
+go-md2man -in eza_colors.5.md -out eza_colors.5
+
 %install
 %cargo_install
 # create compatibility symlink for exa
@@ -166,9 +172,9 @@ install -Dpm 0644 completions/bash/eza -t %{buildroot}/%{bash_completions_dir}/
 install -Dpm 0644 completions/fish/eza.fish -t %{buildroot}/%{fish_completions_dir}/
 install -Dpm 0644 completions/zsh/_eza -t %{buildroot}/%{zsh_completions_dir}/
 # install manpages
-install -Dpm 0644 man/eza.1.md                    -t %{buildroot}/%{_mandir}/man1/
-install -Dpm 0644 man/eza_colors-explanation.5.md -t %{buildroot}/%{_mandir}/man5/
-install -Dpm 0644 man/eza_colors.5.md             -t %{buildroot}/%{_mandir}/man5/
+install -Dpm 0644 man/eza.1                    -t %{buildroot}/%{_mandir}/man1/
+install -Dpm 0644 man/eza_colors-explanation.5 -t %{buildroot}/%{_mandir}/man5/
+install -Dpm 0644 man/eza_colors.5             -t %{buildroot}/%{_mandir}/man5/
 
 %if %{with check}
 %check
