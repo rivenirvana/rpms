@@ -5,7 +5,7 @@ Name:		gamemode
 Version:	1.8.2
 Release:	2.g%{shortc}%{?dist}
 Summary:	Optimize system performance for games on demand
-License:	BSD
+License:	BSD-3-Clause
 URL:		https://github.com/FeralInteractive/gamemode
 Source0:	%{url}/archive/%{commit}.tar.gz
 
@@ -40,7 +40,7 @@ Files for development with %{name}.
 %autosetup -p1 -n %{name}-%{commit}
 
 %build
-%meson -Ddefault_library=both
+%meson
 %meson_build
 
 %check
@@ -48,8 +48,6 @@ Files for development with %{name}.
 
 %install
 %meson_install
-
-%ldconfig_scriptlets
 
 %files
 %license LICENSE.txt
@@ -63,27 +61,35 @@ Files for development with %{name}.
 %{_libexecdir}/gpuclockctl
 %{_libexecdir}/procsysctl
 %{_datadir}/polkit-1/actions/com.feralinteractive.GameMode.policy
-%{_datadir}/polkit-1/rules.d/gamemode.rules
 %{_datadir}/dbus-1/services/com.feralinteractive.GameMode.service
+%{_datadir}/polkit-1/rules.d/gamemode.rules
 %{_datadir}/gamemode/gamemode.ini
 %{_libdir}/libgamemode*.so.*
-%{_libdir}/libgamemode*.so
-%{_sysconfdir}/security/limits.d/10-gamemode.conf
-%{_prefix}/lib/sysusers.d/gamemode.conf
+%{_sysusersdir}/gamemode.conf
 %{_userunitdir}/gamemoded.service
 %{_mandir}/man8/gamemoded.8*
 %{_mandir}/man1/gamemoderun.1*
 %{_mandir}/man1/gamemodelist.1*
 %{_mandir}/man1/gamemode-simulate-game.1*
 %{_metainfodir}/io.github.feralinteractive.gamemode.metainfo.xml
+%config(noreplace) %{_sysconfdir}/security/limits.d/10-gamemode.conf
 
 %files devel
 %{_includedir}/gamemode_client.h
-%{_libdir}/libgamemodeauto.a
 %{_libdir}/pkgconfig/gamemode*.pc
 %{_libdir}/pkgconfig/libgamemodeauto.pc
+%{_libdir}/libgamemode*.so
 
 %changelog
+* Wed Sep 04 2024 Neal Gompa <ngompa@fedoraproject.org> - 1.8.2-1
+- Rebase to v1.8.2
+
+* Wed Aug 28 2024 Miroslav Suchý <msuchy@redhat.com> - 1.7-7
+- convert license to SPDX
+
+* Wed Jul 17 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.7-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
 * Wed Jan 24 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.7-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
 
