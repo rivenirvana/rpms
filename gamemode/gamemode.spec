@@ -3,7 +3,7 @@
 
 Name:		gamemode
 Version:	1.8.2
-Release:	2.g%{shortc}%{?dist}
+Release:	3.g%{shortc}%{?dist}
 Summary:	Optimize system performance for games on demand
 License:	BSD-3-Clause
 URL:		https://github.com/FeralInteractive/gamemode
