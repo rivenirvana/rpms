@@ -1,9 +1,9 @@
-%global commit  49743dbe695876b6396f42a24e128e0b435c9d6a
+%global commit  c174a06f1b98d2aa523fe93e2afaed2713f46563
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
 Name:           steamtinkerlaunch
 Version:        12.12
-Release:        20.g%{shortc}%{?dist}
+Release:        21.g%{shortc}%{?dist}
 Summary:        Linux wrapper tool for use with the Steam client for custom launch options and 3rd party programs
 
 License:        GPLv3
