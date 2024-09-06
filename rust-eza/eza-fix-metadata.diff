@@ -1,7 +1,7 @@
---- eza-0.19.1/Cargo.toml	1970-01-01 08:00:01.000000000 +0800
-+++ eza-0.19.1/Cargo.toml	2024-08-05 13:20:53.154708827 +0800
+--- eza-0.19.2/Cargo.toml	1970-01-01 08:00:01.000000000 +0800
++++ eza-0.19.2/Cargo.toml	2024-09-06 12:02:41.929419082 +0800
 @@ -16,11 +16,23 @@
- version = "0.19.1"
+ version = "0.19.2"
  authors = ["Christina Sørensen <christina@cafkafk.com>"]
  exclude = [
 +    "/completions",
@@ -35,7 +35,7 @@
  [dependencies.ansi-width]
  version = "0.1.0"
  
-@@ -167,10 +175,6 @@
+@@ -181,10 +189,6 @@
  [dependencies.zoneinfo_compiled]
  version = "0.5.1"
  
@@ -46,7 +46,7 @@
  [dev-dependencies.trycmd]
  version = "0.15"
  
-@@ -182,22 +186,9 @@
+@@ -196,22 +200,9 @@
  [features]
  default = ["git"]
  git = ["git2"]
@@ -61,7 +61,7 @@
  version = "0.3"
  
 -[target."cfg(target_os = \"windows\")".dependencies.windows-sys]
--version = "0.52.0"
+-version = "0.59.0"
 -features = [
 -    "Win32_System_Console",
 -    "Win32_Foundation",
