@@ -24,16 +24,16 @@ A modern replacement for ls.}
 
 %package     -n %{crate}
 Summary:        %{summary}
-# (MIT OR Apache-2.0) AND BSD-3-Clause AND GPL-2.0-only WITH GCC-exception-2.0 AND MIT
+# (EUPL-1.2 OR Apache-2.0) AND BSD-3-Clause AND GPL-2.0-only WITH GCC-exception-2.0 AND EUPL-1.2
 # Apache-2.0
-# Apache-2.0 OR MIT
-# Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT
-# MIT
-# MIT OR Apache-2.0
-# MIT OR Apache-2.0 OR Zlib
-# Unlicense OR MIT
-# Zlib OR Apache-2.0 OR MIT
-License:        MIT AND Apache-2.0 AND BSD-3-Clause AND GPL-2.0-only WITH GCC-exception-2.0 AND (Apache-2.0 OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (MIT OR Apache-2.0 OR Zlib) AND (Unlicense OR MIT)
+# Apache-2.0 OR EUPL-1.2
+# Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR EUPL-1.2
+# EUPL-1.2
+# EUPL-1.2 OR Apache-2.0
+# EUPL-1.2 OR Apache-2.0 OR Zlib
+# Unlicense OR EUPL-1.2
+# Zlib OR Apache-2.0 OR EUPL-1.2
+License:        EUPL-1.2 AND Apache-2.0 AND BSD-3-Clause AND GPL-2.0-only WITH GCC-exception-2.0 AND (Apache-2.0 OR EUPL-1.2) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR EUPL-1.2) AND (EUPL-1.2 OR Apache-2.0 OR Zlib) AND (Unlicense OR EUPL-1.2)
 # LICENSE.dependencies contains a full license breakdown
 
 # exa is unmaintained upstream and was retired - development continued as eza
@@ -45,7 +45,7 @@ Provides:       exa = %{version}-%{release}
 %description -n %{crate} %{_description}
 
 %files       -n %{crate}
-%license LICENCE
+%license LICENSE.txt
 %license LICENSE.dependencies
 %doc CHANGELOG.md
 %doc CODE_OF_CONDUCT.md
@@ -70,7 +70,7 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-%license %{crate_instdir}/LICENCE
+%license %{crate_instdir}/LICENSE.txt
 %doc %{crate_instdir}/CHANGELOG.md
 %doc %{crate_instdir}/CODE_OF_CONDUCT.md
 %doc %{crate_instdir}/CONTRIBUTING.md
