@@ -24,16 +24,20 @@ A modern replacement for ls.}
 
 %package     -n %{crate}
 Summary:        %{summary}
-# (MIT OR Apache-2.0) AND BSD-3-Clause AND GPL-2.0-only WITH GCC-exception-2.0 AND MIT
-# Apache-2.0
+# 0BSD OR MIT OR Apache-2.0
+# Apache-2.0 OR BSL-1.0
 # Apache-2.0 OR MIT
 # Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT
+# EUPL-1.2
 # MIT
 # MIT OR Apache-2.0
+# MIT OR Apache-2.0 OR CC0-1.0
 # MIT OR Apache-2.0 OR Zlib
+# MIT OR Zlib OR Apache-2.0
+# MPL-2.0
 # Unlicense OR MIT
 # Zlib OR Apache-2.0 OR MIT
-License:        MIT AND Apache-2.0 AND BSD-3-Clause AND GPL-2.0-only WITH GCC-exception-2.0 AND (Apache-2.0 OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (MIT OR Apache-2.0 OR Zlib) AND (Unlicense OR MIT)
+License:        EUPL-1.2 AND MIT AND MPL-2.0 AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR BSL-1.0) AND (Apache-2.0 OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (MIT OR Apache-2.0) AND (MIT OR Apache-2.0 OR CC0-1.0) AND (MIT OR Apache-2.0 OR Zlib) AND (MIT OR Zlib OR Apache-2.0) AND (Unlicense OR MIT) AND (Zlib OR Apache-2.0 OR MIT)
 # LICENSE.dependencies contains a full license breakdown
 
 # exa is unmaintained upstream and was retired - development continued as eza
@@ -45,7 +49,8 @@ Provides:       exa = %{version}-%{release}
 %description -n %{crate} %{_description}
 
 %files       -n %{crate}
-%license LICENCE
+%license LICENSE.txt
+%license LICENSES/CC-BY-4.0.txt
 %license LICENSE.dependencies
 %doc CHANGELOG.md
 %doc CODE_OF_CONDUCT.md
@@ -53,6 +58,7 @@ Provides:       exa = %{version}-%{release}
 %doc INSTALL.md
 %doc README.md
 %doc SECURITY.md
+%doc TESTING.md
 %{_mandir}/man{1,5}/*.{1,5}*
 %{_bindir}/eza
 %{_bindir}/exa
@@ -70,13 +76,14 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-%license %{crate_instdir}/LICENCE
+%license %{crate_instdir}/LICENSE.txt
 %doc %{crate_instdir}/CHANGELOG.md
 %doc %{crate_instdir}/CODE_OF_CONDUCT.md
 %doc %{crate_instdir}/CONTRIBUTING.md
 %doc %{crate_instdir}/INSTALL.md
 %doc %{crate_instdir}/README.md
 %doc %{crate_instdir}/SECURITY.md
+%doc %{crate_instdir}/TESTING.md
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel
