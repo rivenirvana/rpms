@@ -1,7 +1,7 @@
---- eza-0.19.4/Cargo.toml	1970-01-01 08:00:01.000000000 +0800
-+++ eza-0.19.4/Cargo.toml	2024-09-06 12:02:41.929419082 +0800
+--- eza-0.20.0/Cargo.toml	1970-01-01 08:00:01.000000000 +0800
++++ eza-0.20.0/Cargo1.toml	2024-09-28 20:26:18.423748772 +0800
 @@ -16,11 +16,23 @@
- version = "0.19.4"
+ version = "0.20.0"
  authors = ["Christina Sørensen <christina@cafkafk.com>"]
  exclude = [
 +    "/completions",
@@ -35,7 +35,7 @@
  [dependencies.ansi-width]
  version = "0.1.0"
  
-@@ -181,10 +189,6 @@
+@@ -184,10 +192,6 @@
  [dependencies.zoneinfo_compiled]
  version = "0.5.1"
  
@@ -46,7 +46,7 @@
  [dev-dependencies.trycmd]
  version = "0.15"
  
-@@ -196,22 +200,9 @@
+@@ -199,22 +203,9 @@
  [features]
  default = ["git"]
  git = ["git2"]
