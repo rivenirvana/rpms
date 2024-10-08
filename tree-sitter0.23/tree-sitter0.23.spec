@@ -45,7 +45,7 @@ The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
 %prep
-%autosetup -p1 -n %{realname}
+%autosetup -p1 -n %{realname}-%{version}
 
 
 %build
