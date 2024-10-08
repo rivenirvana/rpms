@@ -64,7 +64,7 @@ find %{buildroot}%{_libdir} -type f \( -name "*.la" -o -name "*.a" \) -delete -p
 %files -n lib%{name}
 %license LICENSE
 %doc README.md CHANGELOG.md
-%{_libdir}/libtree-sitter.so.%{treesitter_so_version}*
+%{_libdir}/libtree-sitter.so.%{treesitter_so_version}.23
 
 %files -n lib%{name}-devel
 %{_includedir}/tree_sitter
