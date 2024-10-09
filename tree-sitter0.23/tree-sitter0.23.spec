@@ -58,8 +58,8 @@ export PREFIX='%{_prefix}' LIBDIR='%{_libdir}'
 export PREFIX='%{_prefix}' LIBDIR='%{_libdir}' INCLUDEDIR='%{_includedir}'
 %make_install
 
-find %{buildroot}%{_libdir} -type f \( -name "*.la" -o -name "*.a" -o -name "*.so.0" \) -delete -print
-
+find %{buildroot}%{_libdir} -type f \( -name "*.la" -o -name "*.a" \) -delete -print
+rm %{buildroot}%%{_libdir}/%{realname}.so.0
 
 %files -n lib%{name}
 %license LICENSE
