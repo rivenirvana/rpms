@@ -1,9 +1,9 @@
 %global realname utf8proc
 
 Summary: Library for processing UTF-8 encoded Unicode strings
-Name:    utf8proc2.9
-Version: 2.9.0
-Release: 1%{?dist}
+Name:    utf8proc2.7
+Version: 2.7.0
+Release: 9%{?dist}
 License: MIT AND Unicode-DFS-2015
 URL:     https://juliastrings.github.io/utf8proc/
 Source:  https://github.com/JuliaStrings/utf8proc/archive/v%{version}.tar.gz#/%{realname}-v%{version}.tar.gz
