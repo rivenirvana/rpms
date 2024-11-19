@@ -4,13 +4,13 @@
 %global gomodulesmode GO111MODULE=on
 %endif
 
-%global commit  e1e4e1be1fb6d0757b2f8590e55aca2738e9f9bd
+%global commit  b62546c391d27d0ecc20b43535077ded4e83c4f2
 %global goipath github.com/jesseduffield/lazygit
 %gometa -L -f
 
 Name:       lazygit
 Version:    0.44.1
-Release:    6%{?dist}
+Release:    7%{?dist}
 Summary:    Simple terminal UI for git commands
 
 License:    MIT
