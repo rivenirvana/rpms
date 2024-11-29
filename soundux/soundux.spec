@@ -11,7 +11,7 @@
 
 Name:           soundux
 Version:        0.2.7
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A cross-platform soundboard
 License:        GPLv3+
 URL:            https://soundux.rocks
@@ -45,7 +45,7 @@ Requires:       ffmpeg
 Requires:       libappindicator-gtk3
 Requires:       libwnck3
 Requires:       (pipewire or pulseaudio)
-Requires:       redhat-lsb-core
+Requires:       redhat-lsb
 Requires:       yt-dlp
 
 # Provide own youtube-dl script that uses yt-dlp compat
