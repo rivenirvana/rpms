@@ -1,16 +1,15 @@
-%global debug_package %{nil}
 %bcond bundled 1
 %if %{with bundled}
 %global gomodulesmode GO111MODULE=on
 %endif
 
-%global commit  4a7cf6040e0302a91babf8c20e98c47007ed1387
+%global commit  ec410b2ae6b25b887d855a1570a135ac7a831ffb
 %global goipath github.com/jesseduffield/lazygit
 %gometa -L -f
 
 Name:       lazygit
 Version:    0.44.1
-Release:    10%{?dist}
+Release:    11%{?dist}
 Summary:    Simple terminal UI for git commands
 
 License:    MIT
@@ -49,6 +48,7 @@ export GOPATH=$(pwd):%{gopath}
 
 
 %build
+%set_build_flags
 %if %{without bundled}
 export GOPATH=$(pwd):%{gopath}
 %endif
