@@ -62,6 +62,7 @@ install -Dpm 0755 %{gobuilddir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 
 %check
+%set_build_flags
 export %{gomodulesmode}
 %if %{without bundled}
 export GOPATH=$(pwd):%{gopath}
