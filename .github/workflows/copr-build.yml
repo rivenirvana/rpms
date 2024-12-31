@@ -1,0 +1,45 @@
+name: Trigger COPR Build
+
+on:
+  push:
+    paths:
+      - '**/**' # Trigger on changes to any file in the repository
+
+jobs:
+  trigger-copr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract changed directories
+        id: changes
+        run: |
+          CHANGED_DIRS=$(echo "${{ toJson(github.event.commits) }}" | jq -r '.[] | .added[], .modified[]' | awk -F/ '{print $1}' | sort | uniq)
+          echo "changed_dirs=${CHANGED_DIRS}" >> $GITHUB_ENV
+
+      - name: Send webhook for each changed directory
+        if: ${{ env.changed_dirs }} != ''
+        env:
+          WEBHOOK_URLS: ${{ toJson(secrets.WEBHOOK_URLS) }}
+          GITHUB_PAYLOAD: ${{ toJson(github.event) }}
+        run: |
+          for dir in $CHANGED_DIRS; do
+            WEBHOOK_URL=$(echo "$WEBHOOK_URLS" | jq -r --arg dir "$dir" '.[$dir]')
+
+            if [[ -n "${WEBHOOK_URL}" ]]; then
+              echo "Triggering build for $dir using $WEBHOOK_URL"
+
+              curl -X POST \
+                -H "Accept: */*" \
+                -H "Content-Type: application/json" \
+                -H "User-Agent: GitHub-Hookshot/${{ github.run_id }}" \
+                -H "X-GitHub-Delivery: ${{ github.event.context_id }}" \
+                -H "X-GitHub-Event: push" \
+                -H "X-GitHub-Hook-ID: ${{ github.event.hook_id }}" \
+                -H "X-GitHub-Hook-Installation-Target-ID: ${{ github.event.repository.id }}" \
+                -H "X-GitHub-Hook-Installation-Target-Type: repository" \
+                -d "$GITHUB_PAYLOAD" \
+                $WEBHOOK_URL
+            else
+              echo "No webhook found for $dir"
+            fi
+          done
