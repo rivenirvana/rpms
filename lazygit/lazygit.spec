@@ -9,7 +9,7 @@
 
 Name:       lazygit
 Version:    0.44.1
-Release:    11%{?dist}
+Release:    12%{?dist}
 Summary:    Simple terminal UI for git commands
 
 License:    MIT
