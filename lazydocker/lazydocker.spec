@@ -16,7 +16,7 @@ License:    MIT
 URL:        %{gourl}
 Source0:    %{gosource}
 
-BuildRequires: golang >= 1.21
+BuildRequires: golang >= 1.22
 BuildRequires: go-md2man
 
 %description
@@ -40,6 +40,7 @@ export GOPATH=$(pwd):%{gopath}
 
 
 %build
+%set_build_flags
 %if %{without bundled}
 export GOPATH=$(pwd):%{gopath}
 %endif
@@ -53,6 +54,7 @@ install -Dpm 0755 %{gobuilddir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 
 %check
+%set_build_flags
 export %{gomodulesmode}
 %if %{without bundled}
 export GOPATH=$(pwd):%{gopath}
