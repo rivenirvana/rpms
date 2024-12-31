@@ -3,7 +3,7 @@ name: Trigger COPR Build
 on:
   push:
     paths:
-      - '**/**' # Trigger on changes to any file in the repository
+      - '*/*'
 
 jobs:
   trigger-copr:
