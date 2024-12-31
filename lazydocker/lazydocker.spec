@@ -1,4 +1,3 @@
-%global debug_package %{nil}
 %bcond bundled 1
 %if %{with bundled}
 %global gomodulesmode GO111MODULE=on
