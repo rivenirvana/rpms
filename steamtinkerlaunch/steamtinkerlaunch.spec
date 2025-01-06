@@ -1,12 +1,12 @@
-%global commit  4ef6565470c166554b6a6fa1b70f31b413961ee7
+%global commit  89af3c89e8bad3b9eb4c07f09796e34ad57c7492
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
 Name:           steamtinkerlaunch
 Version:        12.12
-Release:        23.g%{shortc}%{?dist}
+Release:        24.g%{shortc}%{?dist}
 Summary:        Linux wrapper tool for use with the Steam client for custom launch options and 3rd party programs
 
-License:        GPLv3
+License:        GPL-3.0-only
 URL:            https://github.com/sonic2kk/steamtinkerlaunch
 Source0:        %{url}/archive/%{commit}.tar.gz
 Patch0:         steamtinkerlaunch-no-sed-prefix.patch
