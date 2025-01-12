@@ -1,13 +1,13 @@
 %global commit  086b3fe5b4e9ec58e419a80bf395bea681d9b510
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
-Name:		gamemode
-Version:	1.8.2
-Release:	5.g%{shortc}%{?dist}
-Summary:	Optimize system performance for games on demand
-License:	BSD-3-Clause
-URL:		https://github.com/FeralInteractive/gamemode
-Source0:	%{url}/archive/%{commit}.tar.gz
+Name:       gamemode
+Version:    1.8.2
+Release:    5.g%{shortc}%{?dist}
+Summary:    Optimize system performance for games on demand
+License:    BSD-3-Clause
+URL:        https://github.com/FeralInteractive/gamemode
+Source0:    %{url}/archive/%{commit}.tar.gz
 
 BuildRequires: gcc
 BuildRequires: asciidoc
@@ -51,7 +51,7 @@ Files for development with %{name}.
 
 %files
 %license LICENSE.txt
-%doc	 README.md
+%doc README.md
 %{_bindir}/gamemoded
 %{_bindir}/gamemodelist
 %{_bindir}/gamemoderun
