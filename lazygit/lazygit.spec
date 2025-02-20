@@ -3,12 +3,12 @@
 %global gomodulesmode GO111MODULE=on
 %endif
 
-%global commit  43106b6c7fbe8c69cebb02f8fc80cb060faddeee
+%global commit  52b1c42d38908e43bc4644f0cee3d0d585eec877
 %global goipath github.com/jesseduffield/lazygit
 %gometa -L -f
 
 Name:       lazygit
-Version:    0.45.0
+Version:    0.46.0
 Release:    1%{?dist}
 Summary:    Simple terminal UI for git commands
 
@@ -37,7 +37,6 @@ If you're a mere mortal like me and you're tired of hearing how powerful git
 is when in your daily life it's a powerful pain in your ass, lazygit might be
 for you.
 
-
 %prep
 %autosetup -p1 -n %{name}-%{commit}
 %if %{without bundled}
@@ -46,16 +45,17 @@ export GOPATH=$(pwd):%{gopath}
 %go_generate_buildrequires
 %endif
 
-
 %build
 %set_build_flags
 %if %{without bundled}
 export GOPATH=$(pwd):%{gopath}
 %endif
-GO_LDFLAGS="-X main.version=%{version}"
-%gobuild -o %{gobuilddir}/bin/%{name} %{goipath}
-go-md2man -in README.md -out %{name}.1
 
+%gobuild \
+    -ldflags "-X main.version=%{version}" \
+    -o %{gobuilddir}/bin/%{name} %{goipath}
+
+go-md2man -in README.md -out %{name}.1
 
 %install
 install -Dpm 0755 %{gobuilddir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
@@ -69,13 +69,11 @@ export GOPATH=$(pwd):%{gopath}
 %endif
 %gocheck
 
-
 %files
 %license LICENSE
 %doc README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
-
 
 %changelog
 %autochangelog
