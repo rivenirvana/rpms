@@ -51,10 +51,7 @@ export GOPATH=$(pwd):%{gopath}
 export GOPATH=$(pwd):%{gopath}
 %endif
 
-%gobuild \
-    -ldflags "-X main.version=%{version}" \
-    -o %{gobuilddir}/bin/%{name} %{goipath}
-
+%gobuild -ldflags "-X main.version=%{version}" -o %{gobuilddir}/bin/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
 
 %install
