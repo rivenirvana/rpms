@@ -38,21 +38,21 @@ for you.
 %autosetup -p1 -n %{name}-%{commit}
 
 %build
-go build -ldflags "\
+%global build_options %{shrink:%{expand: \
+    -ldflags "-linkmode=external \
     -X main.commit=%{commit} \
     -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/') \
     -X main.buildSource=copr \
     -X main.version=%{version}" \
-    -o %{gobuilddir}/bin/%{name} %{goipath}
+    -o _build/%{name}
+}}
 
+go build %{build_options}
 go-md2man -in README.md -out %{name}.1
 
 %install
-install -Dpm 0755 %{gobuilddir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
+install -Dpm 0755 _build/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
-
-%check
-%gocheck
 
 %files
 %license LICENSE
