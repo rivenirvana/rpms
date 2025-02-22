@@ -1,11 +1,9 @@
-%global gomodulesmode GO111MODULE=on
-
-%global commit  16f5348790223cdf6cdd44589bd5fad7b3484bb2
+%global commit  b2fd6128f66ae8907f1c9771a3a57f2c22467ac9
 %global goipath github.com/jesseduffield/lazygit
 %gometa -L -f
 
 Name:       lazygit
-Version:    0.46.0
+Version:    0.47.1
 Release:    1%{?dist}
 Summary:    Simple terminal UI for git commands
 
@@ -38,6 +36,7 @@ for you.
 %autosetup -p1 -n %{name}-%{commit}
 
 %build
+%global gomodulesmode GO111MODULE=on
 %global build_options %{shrink:%{expand: \
     -ldflags "-linkmode=external \
     -X main.commit=%{commit} \
