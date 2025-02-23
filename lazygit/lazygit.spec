@@ -1,11 +1,14 @@
-%global commit  b2fd6128f66ae8907f1c9771a3a57f2c22467ac9
 %global goipath github.com/jesseduffield/lazygit
+%global commit  b2fd6128f66ae8907f1c9771a3a57f2c22467ac9
+Version:    0.47.1
 %gometa -L -f
 
+%global golicenses  LICENSE
+%global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
+
 Name:       lazygit
-Version:    0.47.1
 Release:    1%{?dist}
-Summary:    Simple terminal UI for git commands
+Summary:    A simple terminal UI for git commands
 
 License:    MIT
 URL:        %{gourl}
@@ -33,29 +36,30 @@ is when in your daily life it's a powerful pain in your ass, lazygit might be
 for you.
 
 %prep
-%autosetup -p1 -n %{name}-%{commit}
+%goprep
 
 %build
-%global gomodulesmode GO111MODULE=on
-%global build_options %{shrink:%{expand: \
-    -ldflags "-linkmode=external \
-    -X main.commit=%{commit} \
-    -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/') \
-    -X main.buildSource=copr \
-    -X main.version=%{version}" \
-    -o _build/%{name}
+export LDFLAGS %{shrink:%{expand:
+    -X main.commit=%{commit}
+    -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
+    -X main.buildSource=copr
+    -X main.version=%{version}
 }}
 
-go build %{build_options}
+%gobuild -o %{gobuilddir}/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
 
 %install
-install -Dpm 0755 _build/%{name} %{buildroot}%{_bindir}/%{name}
+%gopkginstall
+install -Dpm 0755 %{gobuilddir}/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 
+%check
+%gocheck
+
 %files
-%license LICENSE
-%doc README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
+%license %{golicenses}
+%doc %{godocs}
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 
