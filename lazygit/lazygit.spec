@@ -40,7 +40,7 @@ for you.
 
 %build
 echo $LDFLAGS
-export LDFLAGS %{shrink:%{expand:
+export LDFLAGS=%{shrink:%{expand:
                 "-X main.commit=%{commit}
                  -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
                  -X main.version=%{version}
