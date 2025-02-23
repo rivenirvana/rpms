@@ -39,12 +39,14 @@ for you.
 %goprep
 
 %build
+echo $LDFLAGS
 export LDFLAGS %{shrink:%{expand:
-    -X main.commit=%{commit}
-    -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
-    -X main.buildSource=copr
-    -X main.version=%{version}
+                "-X main.commit=%{commit}
+                 -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
+                 -X main.version=%{version}
+                 -X main.buildSource=copr"
 }}
+echo $LDFLAGS
 
 %gobuild -o %{gobuilddir}/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
