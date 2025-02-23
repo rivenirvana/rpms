@@ -1,4 +1,3 @@
-%global gomodulesmode GO111MODULE=on
 %global goipath github.com/jesseduffield/lazygit
 %global commit  b2fd6128f66ae8907f1c9771a3a57f2c22467ac9
 Version:    0.47.1
@@ -41,13 +40,8 @@ for you.
 %goprep
 
 %build
-export GO_LDFLAGS=%{shrink:%{expand:"
-                -X main.commit=%{commit}
-                -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
-                -X main.version=%{version}
-                -X main.buildSource=copr
-"}}
-
+export GO_LDFLAGS="-X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/') -X main.buildSource=copr"
+export GO111MODULE=on
 %gobuild -o %{gobuilddir}/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
 
@@ -56,6 +50,7 @@ install -Dpm 0755 %{gobuilddir}/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 
 %check
+export GO111MODULE=on
 %gocheck
 
 %files
