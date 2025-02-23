@@ -7,16 +7,17 @@ Version:    0.47.1
 %global golicenses  LICENSE
 %global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
 
-Name:       lazygit
-Release:    1%{?dist}
-Summary:    A simple terminal UI for git commands
+Name:           lazygit
+Release:        1%{?dist}
+Summary:        A simple terminal UI for git commands
 
-License:    MIT
-URL:        %{gourl}
-Source0:    %{gosource}
+License:        MIT
+URL:            %{gourl}
+Source0:        %{gosource}
 
-BuildRequires: golang >= 1.22
-BuildRequires: go-md2man
+BuildRequires:  git-core
+BuildRequires:  golang >= 1.22
+BuildRequires:  go-md2man
 
 %description
 A simple terminal UI for git commands, written in Go with the gocui library.
@@ -40,16 +41,12 @@ for you.
 %goprep
 
 %build
-echo $LDFLAGS
-echo $GO_LDFLAGS
-export LDFLAGS=%{shrink:%{expand:
-                "-X main.commit=%{commit}
-                 -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
-                 -X main.version=%{version}
-                 -X main.buildSource=copr"
-}}
-echo $LDFLAGS
-echo $GO_LDFLAGS
+export GO_LDFLAGS=%{shrink:%{expand:"
+                -X main.commit=%{commit}
+                -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
+                -X main.version=%{version}
+                -X main.buildSource=copr
+"}}
 
 %gobuild -o %{gobuilddir}/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
