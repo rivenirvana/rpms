@@ -1,7 +1,9 @@
+%bcond test 0
+
 %global gomodulesmode GO111MODULE=on
 %global goipath github.com/jesseduffield/lazygit
-%global commit  b2fd6128f66ae8907f1c9771a3a57f2c22467ac9
 Version:        0.47.1
+%global commit  f05f81d713d88b5a55e41a88d11156ee7fc19445
 %gometa -L -f
 
 %global golicenses  LICENSE
@@ -41,13 +43,22 @@ for you.
 %goprep
 
 %build
-export GO_LDFLAGS="-X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/') -X main.buildSource=copr"
+export LDFLAGS=%{shrink:"-X main.commit=%{commit}
+                         -X main.version=%{version}
+                         -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
+                         -X main.buildSource=copr"}
+
 %gobuild -o %{gobuilddir}/%{name} %{goipath}
 go-md2man -in README.md -out %{name}.1
 
 %install
 install -Dpm 0755 %{gobuilddir}/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
+
+%check
+%if %{with test}
+%gocheck
+%endif
 
 %files
 %license %{golicenses}
