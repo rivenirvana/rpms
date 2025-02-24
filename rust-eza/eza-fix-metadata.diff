@@ -1,7 +1,7 @@
---- eza-0.20.16/Cargo.toml	1970-01-01 08:00:01.000000000 +0800
-+++ eza-0.20.16/Cargo.toml	2025-01-04 02:33:17.439647287 +0800
+--- eza-0.20.22/Cargo.toml	1970-01-01 08:00:01.000000000 +0800
++++ eza-0.20.22/Cargo.toml	2025-02-25 07:47:56.136018496 +0800
 @@ -16,18 +16,23 @@
- version = "0.20.16"
+ version = "0.20.22"
  authors = ["Christina Sørensen <christina@cafkafk.com>"]
  exclude = [
 +    "/completions",
