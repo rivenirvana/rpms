@@ -63,7 +63,7 @@ rm %{buildroot}%{_libdir}/lib%{realname}.so.0
 
 %files -n lib%{name}
 %license LICENSE
-%doc README.md CHANGELOG.md
+%doc README.md
 %{_libdir}/libtree-sitter.so.%{treesitter_so_version}.25
 
 %files -n lib%{name}-devel
