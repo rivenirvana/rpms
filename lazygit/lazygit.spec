@@ -18,7 +18,7 @@ URL:            %{gourl}
 Source0:        %{gosource}
 
 BuildRequires:  git-core
-BuildRequires:  golang >= 1.22
+BuildRequires:  golang >= 1.24
 BuildRequires:  go-md2man
 
 %description
