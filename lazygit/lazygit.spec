@@ -2,8 +2,8 @@
 
 %global gomodulesmode GO111MODULE=on
 %global goipath github.com/jesseduffield/lazygit
-Version:        0.52.0
-%global commit  ef6f96bda32455f04a4d0de347e300000285d790
+Version:        0.53.0
+%global commit  26f2c0203bc3078ed020a8c5d3057325c11adca7
 %gometa -L -f
 
 %global golicenses  LICENSE
@@ -15,11 +15,10 @@ Summary:        A simple terminal UI for git commands
 
 License:        MIT
 URL:            %{gourl}
-Source0:        %{gosource}
+Source:         %{gosource}
 
 BuildRequires:  git-core
 BuildRequires:  golang >= 1.24
-BuildRequires:  go-md2man
 
 %description
 A simple terminal UI for git commands, written in Go with the gocui library.
@@ -49,11 +48,9 @@ export LDFLAGS=%{shrink:"-X main.commit=%{commit}
                          -X main.buildSource=copr"}
 
 %gobuild -o %{gobuilddir}/%{name} %{goipath}
-go-md2man -in README.md -out %{name}.1
 
 %install
 install -Dpm 0755 %{gobuilddir}/%{name} %{buildroot}%{_bindir}/%{name}
-install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 
 %check
 %if %{with test}
@@ -64,7 +61,6 @@ install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 %license %{golicenses}
 %doc %{godocs}
 %{_bindir}/%{name}
-%{_mandir}/man1/%{name}.1*
 
 %changelog
 %autochangelog
