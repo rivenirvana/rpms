@@ -2,8 +2,8 @@
 
 %global gomodulesmode GO111MODULE=on
 %global goipath github.com/jesseduffield/lazygit
-Version:        0.54.0
-%global commit  5175798cb1e0bbafed8a2d48ad71f41e7400cd56
+Version:        0.54.1
+%global commit  c0dcf7d0ada607c0a9dbe12263eb729d5ac65ea7
 %gometa -L -f
 
 %global golicenses  LICENSE
