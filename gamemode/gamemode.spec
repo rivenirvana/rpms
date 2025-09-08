@@ -1,9 +1,9 @@
-%global commit  499af4c7bb6b1adb7440b563ef7f786f74c46e05
+%global commit  f0a569a5199974751a4a75ebdc41c8f0b8e4c909
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
 Name:       gamemode
 Version:    1.8.2
-Release:    8.%{shortc}%{?dist}
+Release:    9.%{shortc}%{?dist}
 Summary:    Optimize system performance for games on demand
 License:    BSD-3-Clause
 URL:        https://github.com/FeralInteractive/gamemode
@@ -61,6 +61,7 @@ Files for development with %{name}.
 %{_libexecdir}/gpuclockctl
 %{_libexecdir}/platprofctl
 %{_libexecdir}/procsysctl
+%{_libexecdir}/x3dmodectl
 %{_datadir}/polkit-1/actions/com.feralinteractive.GameMode.policy
 %{_datadir}/dbus-1/services/com.feralinteractive.GameMode.service
 %{_datadir}/polkit-1/rules.d/gamemode.rules
