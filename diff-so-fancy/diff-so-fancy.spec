@@ -1,10 +1,10 @@
 %bcond_with tests # disable tests by default due to missing bats-assert and bats-support
-%global commit  36dcfde9dd82cd3b96abd4e82ecf8bee796381ff
+%global commit  bb015e071529846c964d821ff4a170c56a18f1fa
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
 Name:           diff-so-fancy
 Version:        1.4.4
-Release:        8.g%{shortc}%{?dist}
+Release:        9.g%{shortc}%{?dist}
 Summary:        Good-lookin' diffs
 
 License:        MIT
