@@ -1,4 +1,4 @@
-%global commit  a6a4a87e33f2bdbe3d7323a6d2747b9f8c6e40ee
+%global commit  ce1e9ad4e05fdf0df926d0ff2471be38e9ded04a
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
 %global blurb   GNOME IDE in a box
@@ -20,7 +20,7 @@
 
 Name:           foundry
 Version:        1.0.0
-Release:        2.g%{shortc}%{?dist}
+Release:        3.g%{shortc}%{?dist}
 Summary:        %{blurb}
 
 License:        LGPL-2.1-only
