@@ -4,6 +4,7 @@
 %global blurb   GNOME IDE in a box
 %global lib     libfoundry
 %global lib_gtk libfoundry-gtk
+%global lib_adw libfoundry-adw
 
 %global glib_ver            2.82
 %global gom_ver             0.5.0
@@ -91,6 +92,23 @@ Summary:    Development headers for %{lib_gtk}
 
 %{summary}.
 
+%package -n %{lib_adw}
+Summary:    Adwaita library for %{name}
+
+%description -n %{lib_adw}
+%{blurb}.
+
+%{summary}.
+
+
+%package -n %{lib_adw}-devel
+Summary:    Development headers for %{lib_adw}
+
+%description -n %{lib_adw}-devel
+%{blurb}.
+
+%{summary}.
+
 
 %prep
 %autosetup -n %{name}-%{commit}
@@ -145,6 +163,16 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
 %{_includedir}/%{lib_gtk}-1/%{name}*.h
 %{_libdir}/pkgconfig/%{lib_gtk}-1.pc
 %{_datadir}/gir-1.0/FoundryGtk-1.gir
+
+%files -n %{lib_adw}
+%{_libdir}/%{lib_adw}-1.so*
+%{_libdir}/girepository-1.0/FoundryAdw-1.typelib
+
+%files -n %{lib_adw}-devel
+%dir %{_includedir}/%{lib_adw}-1
+%{_includedir}/%{lib_adw}-1/%{name}*.h
+%{_libdir}/pkgconfig/%{lib_adw}-1.pc
+%{_datadir}/gir-1.0/FoundryAdw-1.gir
 
 
 %changelog
