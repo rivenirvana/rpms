@@ -1,9 +1,9 @@
-%global commit 0e7ad4762f602adfec5852e0b87e3925dedbb155
+%global commit 17b96f81de8ba93ed6e095999bc7c8430150d0a1
 %global shortc %(c=%{commit}; echo ${c:0:7})
 
 Name:    libdex
 Version: 1.1.alpha
-Release: 1.g%{shortc}%{?dist}
+Release: 2.g%{shortc}%{?dist}
 Summary: a library supporting "Deferred Execution" for GNOME and GTK
 
 License: LGPL-2.1-or-later
