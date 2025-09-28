@@ -44,6 +44,7 @@ BuildRequires:  pkgconfig(libssh2)
 BuildRequires:  pkgconfig(template-glib-1.0) >= %{template_glib_ver}
 BuildRequires:  pkgconfig(libcmark) >= %{libcmark_ver}
 BuildRequires:  pkgconfig(webkitgtk-6.0)
+BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(flatpak)
 BuildRequires:  pkgconfig(editorconfig)
 BuildRequires:  pkgconfig(libspelling-1) >= %{libspelling_ver}
