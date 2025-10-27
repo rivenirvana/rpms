@@ -39,6 +39,7 @@ BuildRequires:  pkgconfig(gtk4) >= %{gtk4_ver}
 BuildRequires:  pkgconfig(gtksourceview-5) >= %{gsv_ver}
 BuildRequires:  pkgconfig(vte-2.91-gtk4) >= %{vte_ver}
 BuildRequires:  pkgconfig(libpeas-2) >= %{libpeas_ver}
+BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:  pkgconfig(yaml-0.1)
 BuildRequires:  pkgconfig(libgit2) >= %{libgit2_ver}
 BuildRequires:  pkgconfig(libssh2)
