@@ -1,4 +1,4 @@
-%global commit  8e254563e79bba6a88d0b49a6a396f8c0666a114
+%global commit  b78d09882b5679bde984e8c545935f99eb6c5cd1
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
 %global blurb   GNOME IDE in a box
@@ -20,8 +20,8 @@
 %global libspelling_ver     0.4
 
 Name:           foundry
-Version:        1.0.0
-Release:        5.g%{shortc}%{?dist}
+Version:        1.0.1
+Release:        1.g%{shortc}%{?dist}
 Summary:        %{blurb}
 
 License:        LGPL-2.1-only
