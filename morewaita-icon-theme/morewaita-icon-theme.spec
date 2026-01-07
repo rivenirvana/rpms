@@ -19,7 +19,7 @@ Requires:       adwaita-icon-theme
 
 %description
 An expanded Adwaita-styled companion icon theme with extra icons for popular
-apps and MIME types to complement Gnome Shell's original icons.
+apps and MIME types to complement GNOME Shell's original icons.
 
 %prep
 %autosetup -n %{__reponame}-%{__urlver}
