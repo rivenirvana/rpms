@@ -13,7 +13,7 @@ Summary:        Adwaita-style extra icons theme for GNOME Shell
 
 License:        GPL-3.0-or-later
 URL:            https://github.com/somepaulo/%{__reponame}
-Source0:        %{url}/archive/refs/tags/%{__urlver}.tar.gz
+Source0:        %{url}/archive/refs/tags/v%{__urlver}.tar.gz
 
 Requires:       adwaita-icon-theme
 
