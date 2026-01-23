@@ -1,4 +1,4 @@
-%global commit  b78d09882b5679bde984e8c545935f99eb6c5cd1
+%global commit  9ce615865138c0624ee70dfb0e2de65f066647c5
 %global shortc  %(c=%{commit}; echo ${c:0:7})
 
 %global blurb   GNOME IDE in a box
@@ -20,7 +20,7 @@
 %global libspelling_ver     0.4
 
 Name:           foundry
-Version:        1.0.1
+Version:        1.1.alpha
 Release:        1.g%{shortc}%{?dist}
 Summary:        %{blurb}
 
