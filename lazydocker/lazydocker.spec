@@ -3,12 +3,12 @@
 %global gomodulesmode GO111MODULE=on
 %endif
 
-%global commit  bedde4a03791e678c510b98d0de8b0c2d23d8efa
+%global commit  577797d9ed11463f220c0c5d0acb86b521c1d21d
 %global goipath github.com/jesseduffield/lazydocker
 %gometa -L -f
 
 Name:       lazydocker
-Version:    0.24.1
+Version:    0.24.4
 Release:    1%{?dist}
 Summary:    Lazier way to manage everything docker
 
