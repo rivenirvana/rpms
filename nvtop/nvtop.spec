@@ -16,8 +16,9 @@ BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  make
 BuildRequires:  pkgconfig(libdrm)
+BuildRequires:  pkgconfig(libsystemd)
+BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(ncursesw)
-BuildRequires:  pkgconfig(systemd)
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  libappstream-glib
