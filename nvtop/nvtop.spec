@@ -45,7 +45,7 @@ a htop-familiar way.
 %doc README.markdown
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/icons/hicolor/scalable/%{name}.svg
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_mandir}/man1/%{name}.1*
 %{_metainfodir}/io.github.syllo.nvtop.metainfo.xml
 
