@@ -29,7 +29,7 @@ accelerators. It can handle multiple GPUs and print information about them in
 a htop-familiar way.
 
 %prep
-%autosetup -p1 -n %{name}-%{version}
+%autosetup -p1 -n %{name}-%{commit}
 
 %build
 %cmake -DNVIDIA_SUPPORT=ON -DAMDGPU_SUPPORT=ON -DINTEL_SUPPORT=ON
