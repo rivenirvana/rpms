@@ -49,7 +49,7 @@ Requires:  libdex = %{version}-%{release}
 This package contains developer documentation for writing applications with
 libdex.
 
-%if 0%{?fedora_rawhide}
+%if 0%{?fedora} > 43
 %package -n  python3-libdex
 Summary:     Python3 bindings for %{name}
 BuildArch:   noarch
@@ -93,7 +93,7 @@ This package contains the python3 bindings for %{name}
 %files devel-docs
 %doc %{_docdir}/libdex-1/
 
-%if 0%{?fedora_rawhide}
+%if 0%{?fedora} > 43
 %files -n python3-libdex
 %pycached %{python3_sitelib}/gi/overrides/Dex.py
 %dir %{_libexecdir}/libdex-1
