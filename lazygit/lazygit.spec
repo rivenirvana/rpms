@@ -10,7 +10,7 @@ Version:        0.58.1
 %global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
 
 Name:           lazygit
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A simple terminal UI for git commands
 
 License:        MIT
