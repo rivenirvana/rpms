@@ -9,7 +9,7 @@ Summary: a library supporting "Deferred Execution" for GNOME and GTK
 
 License: LGPL-2.1-or-later
 URL:     https://gitlab.gnome.org/GNOME/libdex
-Source0: %{url}/-/archive/%{commit}/%{name}-%{commit}.tar.gz
+Source:  %{url}/-/archive/%{commit}/%{name}-%{commit}.tar.gz
 
 BuildRequires: /usr/bin/vapigen
 BuildRequires: gcc
