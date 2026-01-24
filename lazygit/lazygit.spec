@@ -10,7 +10,7 @@ Version:        0.58.1
 %global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
 
 Name:           lazygit
-Release:        2%{?dist}
+Release:        3?dist}
 Summary:        A simple terminal UI for git commands
 
 License:        MIT
@@ -18,7 +18,7 @@ URL:            %{gourl}
 Source:         %{gosource}
 
 BuildRequires:  git-core
-BuildRequires:  golang >= 1.24
+BuildRequires:  golang >= 1.25
 
 %description
 A simple terminal UI for git commands, written in Go with the gocui library.
