@@ -7,7 +7,7 @@ Version:        0.58.1
 %gometa -L -f
 
 %global golicenses  LICENSE
-%global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
+%global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md VISION.md docs
 
 Name:           lazygit
 Release:        3%{?dist}
