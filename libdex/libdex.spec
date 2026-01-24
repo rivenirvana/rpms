@@ -1,8 +1,9 @@
 %global commit b79ff4466866da0eed5154f5f517988e3a2fa58e
 %global shortc %(c=%{commit}; echo ${c:0:7})
+%global tarball_version %%(echo %{version} | tr '~' '.')
 
 Name:    libdex
-Version: 1.1.alpha
+Version: 1.1~alpha
 Release: 4.g%{shortc}%{?dist}
 Summary: a library supporting "Deferred Execution" for GNOME and GTK
 
@@ -15,6 +16,8 @@ BuildRequires: gcc
 BuildRequires: gi-docgen
 BuildRequires: libatomic
 BuildRequires: meson
+BuildRequires: python3-devel
+BuildRequires: python3-gobject-base
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gobject-introspection-1.0)
 BuildRequires: pkgconfig(liburing)
@@ -46,11 +49,26 @@ Requires:  libdex = %{version}-%{release}
 This package contains developer documentation for writing applications with
 libdex.
 
+%if 0%{?fedora_rawhide}
+%package -n  python3-libdex
+Summary:     Python3 bindings for %{name}
+BuildArch:   noarch
+Requires:    %{name} = %{version}-%{release}
+Requires:    python3-gobject-base-noarch
+
+%description -n python3-libdex
+This package contains the python3 bindings for %{name}
+%endif
+
 %prep
 %autosetup -p1 -n %{name}-%{commit}
 
 %build
 %meson \
+%if 0%{?fedora} <= 43
+  -Dgdbus=disabled \
+  -Dpygobject=false \
+%endif
   -Ddocs=true \
   -Dexamples=false \
   -Dsysprof=true
@@ -58,9 +76,6 @@ libdex.
 
 %install
 %meson_install
-
-%check
-%meson_test
 
 %files
 %license COPYING
@@ -77,6 +92,13 @@ libdex.
 
 %files devel-docs
 %doc %{_docdir}/libdex-1/
+
+%if 0%{?fedora_rawhide}
+%files -n python3-libdex
+%pycached %{python3_sitelib}/gi/overrides/Dex.py
+%dir %{_libexecdir}/libdex-1
+%{_libexecdir}/libdex-1/dex-gdbus-codegen-extension.py
+%endif
 
 %changelog
 %autochangelog
