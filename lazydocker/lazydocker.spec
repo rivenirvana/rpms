@@ -36,10 +36,10 @@ add custom commands as well). Lazydocker's goal is to make that dream a reality.
 %goprep
 
 %build
-export LDFLAGS="-X main.version=%{version} \
-                -X main.commit=%{commit} \
-                -X main.date=%{lua: print(os.date("%Y%m%d"))} \
-                -X main.buildSource=copr"
+LDFLAGS=%{shrink:"-X main.version=%{version}
+                  -X main.commit=%{commit}
+                  -X main.date=%{lua: print(os.date("%Y%m%d"))}
+                  -X main.buildSource=copr"}
 
 %gobuild -o %{gobuilddir}/%{name} %{goipath}
 
