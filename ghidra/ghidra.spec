@@ -76,17 +76,17 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE2}
 %{_bindir}/%{name}
 %{_datadir}/applications/ghidra.desktop
 %{_datadir}/icons/hicolor/scalable/apps/ghidra.ico
-%dir %{_libdir}/%{name}
+%{_libdir}/%{name}/
 
 %files server
 %{_bindir}/%{name}-server
 %{_bindir}/%{name}-server-admin
 %{_bindir}/%{name}-server-install
 %{_bindir}/%{name}-server-uninstall
-%dir %{_libdir}/%{name}/server
+%{_libdir}/%{name}/server/
 
 %files docs
-%dir %{_libdir}/%{name}/docs
+%{_libdir}/%{name}/docs/
 
 %check
 
