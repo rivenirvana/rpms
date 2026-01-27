@@ -13,7 +13,11 @@ Source1:        private-build-plans.toml
 
 BuildArch:      noarch
 
+%if 0%{?fedora} > 43
+BuildRequires:  nodejs22-npm-bin
+%else
 BuildRequires:  nodejs-npm
+%endif
 BuildRequires:  ttfautohint
 
 %description
