@@ -5,7 +5,7 @@
 
 Name:           adw-gtk3-theme
 Version:        6.4
-Release:        1.%{shortc}%{?dist}
+Release:        2.%{shortc}%{?dist}
 Summary:        The theme from libadwaita ported to GTK-3
 BuildArch:      noarch
 
