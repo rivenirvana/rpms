@@ -23,6 +23,7 @@ This is a custom build specifically for the kitty terminal.
 
 %prep
 %autosetup -n %{source_name}-%{version}
+cp "%{SOURCE1}" ./
 
 # Iosevkat — Monospace, Default
 %package -n iosevkat-fonts
