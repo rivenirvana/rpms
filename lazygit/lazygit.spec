@@ -1,23 +1,25 @@
-%bcond test 0
+%bcond check 0
+
+%global debug_package %{nil}
 
 %global gomodulesmode GO111MODULE=on
 %global goipath github.com/jesseduffield/lazygit
 Version:        0.58.1
 %global commit  19605ad47699888da471ddf17bd2ae6dbb1abf3a
+
 %gometa -L -f
 
 %global golicenses  LICENSE
 %global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md VISION.md docs
 
 Name:           lazygit
-Release:        3%{?dist}
-Summary:        A simple terminal UI for git commands
+Release:        4%{?dist}
+Summary:        Simple terminal UI for git commands
 
 License:        MIT
 URL:            %{gourl}
 Source:         %{gosource}
 
-BuildRequires:  git-core
 BuildRequires:  golang >= 1.25
 
 %description
@@ -42,18 +44,18 @@ for you.
 %goprep
 
 %build
-export LDFLAGS=%{shrink:"-X main.commit=%{commit}
-                         -X main.version=%{version}
-                         -X main.date=%(echo %{release} | sed -E 's/.*\.([0-9]{8})git.*/\1/')
-                         -X main.buildSource=copr"}
+export LDFLAGS="-X main.version=%{version} \
+                -X main.commit=%{commit} \
+                -X main.date=%{lua: print(os.date("%Y%m%d"))} \
+                -X main.buildSource=copr"
 
 %gobuild -o %{gobuilddir}/%{name} %{goipath}
 
 %install
 install -Dpm 0755 %{gobuilddir}/%{name} %{buildroot}%{_bindir}/%{name}
 
+%if %{with check}
 %check
-%if %{with test}
 %gocheck
 %endif
 

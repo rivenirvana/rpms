@@ -1,23 +1,26 @@
-%bcond bundled 1
-%if %{with bundled}
-%global gomodulesmode GO111MODULE=on
-%endif
+%bcond check 0
 
-%global commit  577797d9ed11463f220c0c5d0acb86b521c1d21d
+%global debug_package %{nil}
+
+%global gomodulesmode GO111MODULE=on
 %global goipath github.com/jesseduffield/lazydocker
+Version:        0.24.4
+%global commit  577797d9ed11463f220c0c5d0acb86b521c1d21d
+
 %gometa -L -f
 
-Name:       lazydocker
-Version:    0.24.4
-Release:    1%{?dist}
-Summary:    Lazier way to manage everything docker
+%global golicenses  LICENSE
+%global godocs      README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
 
-License:    MIT
-URL:        %{gourl}
-Source0:    %{gosource}
+Name:           lazydocker
+Release:        2%{?dist}
+Summary:        The lazier way to manage everything docker
 
-BuildRequires: golang >= 1.22
-BuildRequires: go-md2man
+License:        MIT
+URL:            %{gourl}
+Source:         %{gosource}
+
+BuildRequires:  golang >= 1.22
 
 %description
 A simple terminal UI for both docker and docker-compose, written in Go with the
@@ -29,45 +32,29 @@ impossible. What if you had all the information you needed in one terminal
 window with every common command living one keypress away (and the ability to
 add custom commands as well). Lazydocker's goal is to make that dream a reality.
 
-
 %prep
-%autosetup -p1 -n %{name}-%{commit}
-%if %{without bundled}
-%generate_buildrequires
-export GOPATH=$(pwd):%{gopath}
-%go_generate_buildrequires
-%endif
-
+%goprep
 
 %build
-%set_build_flags
-%if %{without bundled}
-export GOPATH=$(pwd):%{gopath}
-%endif
-GO_LDFLAGS="-X main.version=%{version}"
-%gobuild -o %{gobuilddir}/bin/%{name} %{goipath}
-go-md2man -in README.md -out %{name}.1
+export LDFLAGS="-X main.version=%{version} \
+                -X main.commit=%{commit} \
+                -X main.date=%{lua: print(os.date("%Y%m%d"))} \
+                -X main.buildSource=copr"
 
+%gobuild -o %{gobuilddir}/%{name} %{goipath}
 
 %install
-install -Dpm 0755 %{gobuilddir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
-install -Dpm 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
+install -Dpm 0755 %{gobuilddir}/%{name} %{buildroot}%{_bindir}/%{name}
 
+%if %{with check}
 %check
-%set_build_flags
-export %{gomodulesmode}
-%if %{without bundled}
-export GOPATH=$(pwd):%{gopath}
-%endif
 %gocheck
-
+%endif
 
 %files
-%license LICENSE
-%doc README.md CONTRIBUTING.md CODE-OF-CONDUCT.md docs
+%license %{golicenses}
+%doc %{godocs}
 %{_bindir}/%{name}
-%{_mandir}/man1/%{name}.1*
-
 
 %changelog
 %autochangelog
