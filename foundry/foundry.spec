@@ -4,7 +4,7 @@
 
 Name:           foundry
 Version:        1.1~alpha
-Release:        1.g%{shortc}%{?dist}
+Release:        2.g%{shortc}%{?dist}
 Summary:        %{blurb}
 
 # foundry: LGPL-2.1-or-later
@@ -33,7 +33,7 @@ BuildRequires:  pkgconfig(json-glib-1.0)
 BuildRequires:  pkgconfig(jsonrpc-glib-1.0)
 BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(libcmark)
-BuildRequires:  pkgconfig(libdex-1) >= 1.1~alpha
+BuildRequires:  pkgconfig(libdex-1)
 BuildRequires:  pkgconfig(libgit2)
 BuildRequires:  pkgconfig(libpanel-1)
 BuildRequires:  pkgconfig(libpeas-2)
