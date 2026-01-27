@@ -1,8 +1,3 @@
-# Build options
-[buildOptions]
-optimizeWithTtx = false
-
-# Building plans
 # Sans
 [buildPlans.Iosevkat]
 family = "Iosevkat"
@@ -12,6 +7,18 @@ snapshotFamily = 'Iosevkat'
 snapshotFeature = {"NWID" = 0}
 exportGlyphNames = true
 
+[buildPlans.Iosevkat.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.Iosevkat.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+
 [buildPlans.IosevkatTerm]
 family = "Iosevkat Term"
 spacing = "term"
@@ -19,12 +26,36 @@ snapshotFamily = 'Iosevkat'
 snapshotFeature = {"NWID" = 1}
 exportGlyphNames = true
 
+[buildPlans.IosevkatTerm.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatTerm.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+
 [buildPlans.IosevkatFixed]
 family = "Iosevkat Fixed"
 spacing = "fixed"
 snapshotFamily = 'Iosevkat'
 snapshotFeature = {"NWID" = 1}
 exportGlyphNames = true
+
+[buildPlans.IosevkatFixed.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatFixed.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
 
 # Slab
 [buildPlans.IosevkatSlab]
@@ -36,6 +67,18 @@ snapshotFamily = 'Iosevkat Slab'
 snapshotFeature = {"NWID" = 0}
 exportGlyphNames = true
 
+[buildPlans.IosevkatSlab.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatSlab.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+
 [buildPlans.IosevkatTermSlab]
 family = "Iosevkat Term Slab"
 serifs = "slab"
@@ -44,6 +87,18 @@ snapshotFamily = 'Iosevkat Slab'
 snapshotFeature = {"NWID" = 1}
 exportGlyphNames = true
 
+[buildPlans.IosevkatTermSlab.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatTermSlab.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+
 [buildPlans.IosevkatFixedSlab]
 family = "Iosevkat Fixed Slab"
 serifs = "slab"
@@ -51,6 +106,18 @@ spacing = "fixed"
 snapshotFamily = 'Iosevkat Slab'
 snapshotFeature = {"NWID" = 1}
 exportGlyphNames = true
+
+[buildPlans.IosevkatFixedSlab.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatFixedSlab.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
 
 # Curly
 [buildPlans.IosevkatCurly]
@@ -62,6 +129,18 @@ exportGlyphNames = true
 [buildPlans.IosevkatCurly.variants]
 inherits = "ss20"
 
+[buildPlans.IosevkatCurly.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatCurly.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+
 [buildPlans.IosevkatTermCurly]
 family  = "Iosevkat Term Curly"
 spacing = "term"
@@ -71,6 +150,18 @@ exportGlyphNames = true
 [buildPlans.IosevkatTermCurly.variants]
 inherits = "ss20"
 
+[buildPlans.IosevkatTermCurly.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatTermCurly.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+
 [buildPlans.IosevkatFixedCurly]
 family  = "Iosevkat Fixed Curly"
 spacing = "fixed"
@@ -79,6 +170,18 @@ snapshotFeature = {"NWID" = 1, "ss20" = 1}
 exportGlyphNames = true
 [buildPlans.IosevkatFixedCurly.variants]
 inherits = "ss20"
+
+[buildPlans.IosevkatFixedCurly.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatFixedCurly.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
 
 # Curly Slab
 [buildPlans.IosevkatCurlySlab]
@@ -91,6 +194,18 @@ exportGlyphNames = true
 [buildPlans.IosevkatCurlySlab.variants]
 inherits = "ss20"
 
+[buildPlans.IosevkatCurlySlab.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatCurlySlab.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+
 [buildPlans.IosevkatTermCurlySlab]
 family  = "Iosevkat Term Curly Slab"
 serifs = "slab"
@@ -100,6 +215,18 @@ snapshotFeature = {"NWID" = 1, "ss20" = 1}
 exportGlyphNames = true
 [buildPlans.IosevkatTermCurlySlab.variants]
 inherits = "ss20"
+
+[buildPlans.IosevkatTermCurlySlab.slopes.Oblique]
+angle = 9
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.IosevkatTermCurlySlab.slopes.Italic]
+angle = 9
+shape = "italic"
+menu  = "italic"
+css   = "italic"
 
 [buildPlans.IosevkatFixedCurlySlab]
 family  = "Iosevkat Fixed Curly Slab"
@@ -111,92 +238,14 @@ exportGlyphNames = true
 [buildPlans.IosevkatFixedCurlySlab.variants]
 inherits = "ss20"
 
-###################################################################################################
-# Weight mappings (style => shape weight, menu weight, CSS weight)
-#   Shape weight : affects the shape of the glyphs
-#   Menu weight  : affects the font menu name
-#   CSS weight   : affects the webfont CSS "font-weight" property
-# IMPORTANT : Currently "menu" property only support 100, 200, 300, 350, 400, 450, 500, 600, 700,
-#             800, 900, and "shape" properly only supports number between 100 and 900 (inclusive).
-
-[weights.Thin]
-shape = 100
-menu  = 100
-css   = 100
-
-[weights.ExtraLight]
-shape = 200
-menu  = 200
-css   = 200
-
-[weights.Light]
-shape = 300
-menu  = 300
-css   = 300
-
-[weights.Regular]
-shape = 400
-menu  = 400
-css   = 400
-
-[weights.Medium]
-shape = 500
-menu  = 500
-css   = 500
-
-[weights.SemiBold]
-shape = 600
-menu  = 600
-css   = 600
-
-[weights.Bold]
-shape = 700
-menu  = 700
-css   = 700
-
-[weights.ExtraBold]
-shape = 800
-menu  = 800
-css   = 800
-
-[weights.Heavy]
-shape = 900
-menu  = 900
-css   = 900
-
-# slope mappings (style => slope angle, shape slope grade, menu slope, CSS slope)
-[slopes.Upright]
-angle = 0
-shape = "upright"
-menu  = "upright"
-css   = "normal"
-
-[slopes.Oblique]
+[buildPlans.IosevkatFixedCurlySlab.slopes.Oblique]
 angle = 9
 shape = "oblique"
 menu  = "oblique"
 css   = "oblique"
 
-[slopes.Italic]
+[buildPlans.IosevkatFixedCurlySlab.slopes.Italic]
 angle = 9
 shape = "italic"
 menu  = "italic"
 css   = "italic"
-
-# Width mappings (style => shape width, menu width, CSS stretch)
-#   Shape width   : affects the shape of the glyphs
-#   Menu width    : affects the font menu name
-#   CSS stretch   : affects the webfont CSS "font-stretch" property
-#
-# IMPORTANT : Currently "shape" property only support 3 ... 9
-#              and "menu" only support 1 ... 9
-
-[widths.Normal]
-shape = 500
-menu  = 5
-css   = "normal"
-
-[widths.Extended]
-shape = 600
-menu  = 7
-css   = "expanded"
