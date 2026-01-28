@@ -44,9 +44,7 @@ npm run build -- ttf::IosevkatTerm
 %install
 %{__rm} -rf %{buildroot}
 
-%{__install} -D -m 0644 %{_builddir}/%{source_name}-%{version}/dist/Iosevkat/TTF/*.ttf      -t %{buildroot}%{_datadir}/fonts/iosevkat-fonts
 %{__install} -D -m 0644 %{_builddir}/%{source_name}-%{version}/dist/IosevkatTerm/TTF/*.ttf  -t %{buildroot}%{_datadir}/fonts/iosevkat-term-fonts
-%{__install} -D -m 0644 %{_builddir}/%{source_name}-%{version}/dist/IosevkatFixed/TTF/*.ttf -t %{buildroot}%{_datadir}/fonts/iosevkat-fixed-fonts
 
 %files -n iosevkat-term-fonts
 %license LICENSE.md
