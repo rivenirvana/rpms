@@ -27,13 +27,13 @@ menu  = "upright"
 css   = "normal"
 
 [buildPlans.IosevkatTerm.slopes.Oblique]
-angle = 0
+angle = 8
 shape = "oblique"
 menu  = "oblique"
 css   = "oblique"
 
 [buildPlans.IosevkatTerm.slopes.Italic]
-angle = 0
+angle = 7
 shape = "italic"
 menu  = "italic"
 css   = "italic"
