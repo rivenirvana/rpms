@@ -10,6 +10,16 @@ shape = 400
 menu = 400
 css = 400
 
+[buildPlans.IosevkatTerm.weights.Bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.IosevkatTerm.widths.Normal]
+shape = 500
+menu = 5
+css = "normal"
+
 [buildPlans.IosevkatTerm.slopes.Upright]
 angle = 0
 shape = "upright"
@@ -17,13 +27,13 @@ menu  = "upright"
 css   = "normal"
 
 [buildPlans.IosevkatTerm.slopes.Oblique]
-angle = 9
+angle = 0
 shape = "oblique"
 menu  = "oblique"
 css   = "oblique"
 
 [buildPlans.IosevkatTerm.slopes.Italic]
-angle = 9
+angle = 0
 shape = "italic"
 menu  = "italic"
 css   = "italic"
