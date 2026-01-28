@@ -5,7 +5,7 @@ serifs = "sans"
 noCvSs = false
 exportGlyphNames = true
 
-[buildPlans.Iosevkat.weights.Regular]
+[buildPlans.IosevkatTerm.weights.Regular]
 shape = 400
 menu = 400
 css = 400
