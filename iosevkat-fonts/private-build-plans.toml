@@ -27,13 +27,16 @@ menu  = "upright"
 css   = "normal"
 
 [buildPlans.IosevkatTerm.slopes.Oblique]
-angle = 6
+angle = 5
 shape = "oblique"
 menu  = "oblique"
 css   = "oblique"
 
 [buildPlans.IosevkatTerm.slopes.Italic]
-angle = 6
+angle = 5
 shape = "italic"
 menu  = "italic"
 css   = "italic"
+
+[buildPlans.IosevkatTerm.metricOverride]
+powerlineShiftY = 100
