@@ -39,5 +39,6 @@ menu  = "italic"
 css   = "italic"
 
 [buildPlans.IosevkatTerm.metricOverride]
-sb = 'default_sb * 1.1'
-powerlineShiftY = 2000
+sb = 'default_sb * 2'
+powerlineScaleX = 0.5
+powerlineShiftY = 4000

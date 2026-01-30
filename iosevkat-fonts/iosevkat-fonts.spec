@@ -3,7 +3,7 @@
 
 Name:           iosevkat
 Version:        34.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Slender typeface for code, from code.
 
 License:        SIL Open Font License Version 1.1
