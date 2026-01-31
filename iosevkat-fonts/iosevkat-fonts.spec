@@ -3,7 +3,7 @@
 
 Name:           iosevkat
 Version:        34.1.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Slender typeface for code, from code.
 
 License:        SIL Open Font License Version 1.1
@@ -29,14 +29,14 @@ This is a custom build specifically for the kitty terminal.
 %autosetup -n %{source_name}-%{version}
 cp "%{SOURCE1}" ./
 
-%package -n iosevkat-term-fonts
+%package -n iosevkat-fonts
 Summary:        Monospace, Default
-%description -n iosevkat-term-fonts
+%description -n iosevkat-fonts
 Iosevkat Monospace, Default
 
 %build
 npm install
-npm run build -- ttf::IosevkatTerm
+npm run build -- ttf::Iosevkat
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -44,12 +44,12 @@ npm run build -- ttf::IosevkatTerm
 %install
 %{__rm} -rf %{buildroot}
 
-%{__install} -D -m 0644 %{_builddir}/%{source_name}-%{version}/dist/IosevkatTerm/TTF/*.ttf  -t %{buildroot}%{_datadir}/fonts/iosevkat-term-fonts
+%{__install} -D -m 0644 %{_builddir}/%{source_name}-%{version}/dist/Iosevkat/TTF/*.ttf  -t %{buildroot}%{_datadir}/fonts/iosevkat-fonts
 
-%files -n iosevkat-term-fonts
+%files -n iosevkat-fonts
 %license LICENSE.md
 %doc README.md
-%{_datadir}/fonts/iosevkat-term-fonts
+%{_datadir}/fonts/iosevkat-fonts
 
 %changelog
 %autochangelog
