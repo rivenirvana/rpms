@@ -1,5 +1,5 @@
 [buildPlans.Iosevkat]
-Jfamily = "Iosevkat"
+family = "Iosevkat"
 spacing = "term"
 serifs = "sans"
 noCvSs = false
