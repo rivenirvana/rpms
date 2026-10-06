@@ -3,7 +3,7 @@
 %define __reponame MoreWaita
 %define __lowername %(echo %{__reponame} | tr '[:upper:]' '[:lower:]')
 
-%define __urlver 49
+%define __urlver 50.1
 %define _disable_source_fetch 0
 
 Name:           %{__lowername}-icon-theme
